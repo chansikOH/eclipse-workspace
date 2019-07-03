@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>뉴스</h1>
+	
+	<div id="breaking-news">
+		<h3>속보</h3>
+		<ul id="breaking-news-box">
+			<li>전세계에 좀비 바이러스 창궐</li>
+			<li>주요국 지도자들 지하벙커로 피신</li>
+			<li>전 지구적인 교통망, 통신망 회생불가능 상태로 파괴</li>
+		</ul>
+	</div>
+	
+	<div id="news-box">
+		<h3>주요 뉴스</h3>
+		<div class="box">
+			<h3>스포츠 뉴스</h3>
+			<ul id="sports-box">
+				<li>류현진 사이영상 수상</li>
+				<li>U-20 월드컵 한국 우승</li>
+				<li>손흥민 피파 올해의 선수상 수상</li>
+			</ul>
+		</div>
+		<div class="box">
+			<h3>연예 뉴스</h3>
+			<ul id="ent-box">
+				<li>트와이스 멤버간 불화로 해체</li>
+				<li>YG 주식 폭락, 양현석 개인회생 신청</li>
+				<li>BTS 그래미상 주요 부문 모두 수상</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="movie-box">
+		<h3>영화 정보</h3>
+		<div class="box">
+			<h3>개봉영화</h3>
+			<ul id="ranking-box">
+				<li>1위. 기생충</li>
+				<li>2위. 알라딘</li>
+				<li>3위. X맨, 다크 피닉스</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		// 계층 선택자
+		
+		// 1. 자손 선택자(하위 선택자)
+		// 		$('선택자1 선택자2') : 선택자1의 하위 엘리먼트 중에서 선택자2에 해당하는 엘리먼트를 선택한다.
+		// 속보만 빨갛게 표시하기
+		$('#breaking-news-box li').css('color', 'red');
+		
+		// 주요뉴스, 스포츠뉴스, 연예뉴스 제목을 파랗게 표시하기
+		$('#news-box h3').css('color', 'blue');
+		
+		// 2. 자식 선택자
+		//		$('선택자1 > 선택자2') : 선택자1의 자식 엘리먼트 중에서 선택자2에 해당하는 엘리먼트를 선택한다.
+		// 주요뉴스 제목만 밑줄 표시하기
+		// id="news-box"의 자식엘리먼트 h3찾기
+		$("#news-box > h3").css("text-decoration", 'underline');
+		
+		// 3. 동생 선택자(next 선택자)
+		// 		$('선택자1 + 선택자2') : 선택자1의 엘리먼트 바로 다음에 오는 엘리먼트가 선택자2에 해당될 때 선택한다.
+		// 주요뉴스 중에서 스포츠뉴스 관련 div를 선택해서 테두리 표시하기
+		// id="news-box"의 자식엘리먼트 h3와 인접한 div 찾기
+		$('#news-box > h3 + div').css('border', '3px solid red');
+		
+		// 4. 동생들 선택자
+		//		$('선택자1 ~ 선택자2') : 선택자1의 동생 엘리먼트들 중에서 선택자2에 해당하느 엘리먼트를 모두 선택한다.
+		// 스포츠뉴스와 연예뉴스에만 배경색 넣기
+		// id="news-box"인 엘리먼트의 하위 엘리먼트 중에서 div를 찾아서 배경색 넣기
+		$("#news-box div").css('background-color', 'yellow');
+		// id="news-box"인 엘리먼트의 하위 엘리먼트 중에서 클래스가 box인 엘리먼트를 찾아서 배경색 넣기
+		$("#news-box .box").css('background-color', 'yellow');
+		// id="news-box"의 자식 엘리먼트 h3의 동생들 중에서 div를 찾아서 배경색 넣기
+		$("#news-box > h3 ~ div").css('background-color', 'yellow');
+		// id="news-box"의 자식 엘리먼트 h3의 동생들 중에서 클래스가 box인 엘리먼트를 찾아서 배경색 넣기
+		$("#news-box > h3 ~ .box").css('background-color', 'yellow');
+	</script>
+</body>
+</html>

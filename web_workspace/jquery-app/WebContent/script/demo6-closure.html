@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>클릭 수 계산하기</h1>
+	<div>
+		<button id="btn" onclick="add2()">클릭</button>
+	</div>
+
+<script type="text/javascript">
+	/* 
+		Closure(클로저)
+			- parent 함수의 실행이 종료된 후에도 
+			  parent 함수에서 정의된 변수에 엑세스할 수 있는 함수를 
+			  클로저라고 부른다.
+			- 로컬변수를 private 변수처럼 동작하게 만들 수 있다.
+	*/
+	
+	/* 
+	var count = 0;
+	function add() {
+		count++;
+		alert(count);
+	} 
+	*/
+	
+	/*
+	function parentFn() {
+		var count = 0;
+		
+		// 내포된 함수 정의하기
+		// 내포된 함수내에서 카운트 값 증가시키기
+		function nestedFn() {
+			count++;
+			alert(count);
+		}
+		// 내포된 함수를 반환값으로 제공하기
+		return nestedFn;
+	}
+	
+	var add2 = parentFn();	// add2에는 nestedFn() { ... } 가 들어있다.
+	*/
+	
+	var add = (function() {
+		var count = 0;
+		return function() {
+			count++;
+			console.log(count);
+		}
+	})()
+</script>
+</body>
+</html>

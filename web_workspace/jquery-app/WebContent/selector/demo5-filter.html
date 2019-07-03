@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div class="movie-box">
+		<h3>영화 랭킹</h3>
+		<table border="1" style="width:100%;">
+			<thead>
+				<tr>
+					<th>순위</th>
+					<th>제목</th>
+					<th class="number-field">관객수</th>
+					<th>개봉일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="top">
+					<td>1</td>
+					<td>기생충</td>
+					<td class="number-field">7,373,743</td>
+					<td>2019.05.30</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>알라딘</td>
+					<td class="number-field">4,113,400</td>
+					<td>2019.05.23</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>맨 인 블랙</td>
+					<td class="number-field">3,140</td>
+					<td>2019.06.12</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>엑스맨: 다크 피닉스</td>
+					<td class="number-field">793,192</td>
+					<td>2019.06.05</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>이웃집 토토로</td>
+					<td class="number-field">110,845</td>
+					<td>2001.07.28</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div id="movie-detail-box">
+		<h3>영화 상세 정보</h3>
+		<dl>
+			<dt class="movie-title-field">제목</dt><dd>이웃집 토토로</dd>
+			<dt>영어제목</dt><dd>My Neighbor Totoro</dd>
+			<dt class="movie-title-field">평점</dt><dd>9.0</dd>
+			<dt class="movie-title-field">쟝르</dt><dd>애니메이션/드라마</dd>
+			<dt>제작국가</dt><dd>일본</dd>
+			<dt class="movie-title-field">개봉일</dt><dd>2001.07.28</dd>
+			<dt>상영시간</dt><dd>80분<span>(1시간 20분)</span></dd>
+			<dt>감독</dt><dd><span>미야자키 하야오</span></dd>
+		</dl>
+	</div>
+	
+	<div id="movie-form-box">
+		<h3>신규 영화 등록</h3>
+		<form id="movie-form">
+			<p><label>영화제목</label> <input type="text" name="name" /></p>
+			<p><label>영어제목</label> <input type="text" name="title" /></p>
+			<p><label>영화평점</label> <input type="text" name="point" /></p>
+			<p><label>영화장르</label> <input type="checkbox" name="genre" />드라마
+									<input type="checkbox" name="genre" />액션
+									<input type="checkbox" name="genre" />애니메이션
+									<input type="checkbox" name="genre" />스릴러
+									<input type="checkbox" name="genre" />공포
+									<input type="checkbox" name="genre" />환타지
+									<input type="checkbox" name="genre" />SF
+									<input type="checkbox" name="genre" />코메디
+									<input type="checkbox" name="genre" />뮤지컬
+									</p>
+			<p><label>제작국가</label> <input type="radio" name="nation" />한국
+									<input type="radio" name="nation" />미국
+									<input type="radio" name="nation" />일본
+									<input type="radio" name="nation" />중국
+									<input type="radio" name="nation" />유럽
+									<input type="radio" name="nation" />기타
+									</p>
+			<p><label>개봉일자</label> <input type="date" name="opendate" /></p>
+			<p><label>상영시간</label> <input type="number" name="runningtime" /></p>
+			<p><label>감독이름</label> <input type="text" name="director" /></p>
+			<p><button type="submit">등록</button><button type="reset">취소</button></p>
+		</form>
+	</div>
+	<script type="text/javascript">
+		// 1. jQuery 연습의 글자색을 빨갛게 바꾸기
+		$('h1').css('color', 'red');
+		
+		// 2. 영화랭킹, 영화상세정보, 신규영화등록을 파랗게 바꾸기
+		$('h3').css('color', 'blue');
+		
+		// 3. 영화랭킹, 영화상세정보, 신규영화등록 각각의 블록에 테두리를 추가
+		$('div').css('border', '3px solid silver');
+		
+		// 4. 영화랭킹의 순위, 제목, 관객수, 개봉일의 배경색을 회색으로 바꾸기
+		$('.movie-box th').css('background-color', 'gray');
+		
+		// 5. 영화랭킹의 순위가 1위인 영화의 정보를 빨갛게 바꾸기
+		$('.movie-box .top').css('color', 'red');
+		
+		// 6. 영화랭킹에서 순위가 1위인 영화제목의 글자크기를 30px로 설정하기
+		$('.movie-box .top td:eq(1)').css('font-size', '30px');
+		
+		// 7. 영화랭킹 정보에서 영화정보 전체를 가운데 정렬하기
+		//		$('').css('text-align', 'center');
+		$('.movie-box tbody').css('text-align', 'center');
+		
+		// 8. 영화랭킹 정보에서 모든 관객수 컬럼을 오른쪽 정렬하기
+		// 		&('').css('text-align', 'right');
+		$('.number-field').css('text-align', 'right');
+		
+		// 9. 영화상세 정보에서 제목, 평점, 장르, 개봉일의 글자색을 빨갛게 바꾸기
+		$('#movie-detail-box .movie-title-field').css('color', 'red');
+		
+		// 10. 영화상세 정보에서 감독이름을 파랗게 표시하기
+		$('#movie-detail-box dd:last span').css('color', 'blue');
+		
+		// 11. 영화상세 정보에서 상영시간을 시간단위로 표시한 내용만 녹색으로 표시하기
+		$('#movie-detail-box dd:eq(6) span').css('color', 'green');
+		
+		// 12. 신규영화등록에서 각 필드의 명칭(label)을 파랗게 표시하기
+		$('#movie-form-box label').css('color', 'blue');
+		
+		// 13. 영화제목, 영어제목, 영화평점 입력칸의 테두리만 빨갛게 표시하기
+		$('#movie-form [type=text]:lt(3)').css('border', '1px solid red');
+		
+		// 14. 신규영화등록에서 개봉일자 입력칸에 '2019-06-15'를 값으로 설정하기
+		//		$('').val('2019-06-15');
+		$('[name=opendate]').val('2019-06-15');
+		
+		// 15. 신규영화등록에서 상영시간 입력칸에 '150'을 값으로 설정하기
+		$('[name=runningtime]').val('150');
+		
+		// 16. 신규영화등록에서 감독이름 입력칸에 '홍길동'을 값으로 설정하기
+		$('[name=director]:last').val('홍길동');
+		
+		// 17. 신규영화등록에서 영화장르체크박스에서 드라마가 체크되어 있게 하기
+		//		$('').prop('checked', true);
+		$('[name=genre]:first').prop('checked', true);
+		
+		// 18. 신규영화등록에서 제작국가에 한국이 체크되어 있게 하기
+		$('[name=nation]:first').prop('checked', true);
+	</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>	
+	<typeAlias alias="Loc" type="kr.co.hta.ibatis.Location"/>
+	
+	<!-- SQL 쿼리 정의 -->
+		
+	<!-- 
+		insertLocation을 실행의뢰할 때 Location객체에 값 담아서 전달할 테니까
+		그 객체에서 값을 가져와서 이 쿼리 실행해주세요.
+	 -->
+	<insert id="insertLocation" parameterClass="Loc">
+		insert into locations
+		(location_id, street_address, postal_code, city, state_province, country_id)
+		values
+		(locations_seq.nextval, #address#, #code#, #city#, #state#, #countryId#)
+	</insert>
+	
+	<!-- 
+		deleteLocationById를 실행의뢰할 때는 정수값을 전달할테니까
+		그 정수값을 적용해서 이 쿼리 실행해주세요.
+	 -->
+	<delete id="deleteLocationById" parameterClass="int">
+		delete from locations
+		where location_id = #value#
+	</delete>
+	
+	<!-- 
+		저장된 모든 지역의 개수 조회하기 1-1
+	-->
+	<select id="getAllCount" resultClass="int">
+		select count(*)
+		from locations
+	</select>
+	 
+	<!-- 
+	 	특정 국가에 위치한 지역의 개수 조회하기 1-1
+	-->
+	<select id="getCountByCountry" parameterClass="string" resultClass="int">
+		select count(*)
+		from locations
+		where country_id = #value#
+	</select>
+	  
+	<!-- 
+		저장된 모든 도시의 이름 조회하기 n-1
+	-->
+	<select id="getAllCities" resultClass="string">
+		select city 
+		from locations
+		order by city asc
+	</select>
+	
+	<!-- 
+	  	특정 지역아이디에 해당하는 지역정보 조회하기 1-n
+	-->
+	<select id="getLocationById" parameterClass="int" resultClass="Loc">
+		select 
+			location_id id,
+			street_address address,
+			postal_code code,
+			city city,
+			state_province state,
+			country_id countryId
+		from 
+			locations
+		where
+			location_id = #value# 
+	</select>
+	   
+	<!-- 
+	   	특정 국가에 위치한 지역의 지역정보 조회하기 n-n
+	-->
+	<select id="getLocationByCountry" parameterClass="string" resultClass="Loc">
+		select
+			location_id id,
+			street_address address,
+			postal_code code,
+			city city,
+			state_province state,
+			country_id countryId
+		from 
+			locations
+		where 
+			country_id = #value#
+	</select>
+</sqlMap>

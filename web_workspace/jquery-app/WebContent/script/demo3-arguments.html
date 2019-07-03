@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function fn1(a, b) {
+		console.log(a, b);
+		
+		// arguments : 모든 자바스크립트 함수에 기본으로 내장된 배열객체.
+		// console.log(arguments);
+		console.log("개수", arguments.length);
+		for (var i=0; i<arguments.length; i++) {
+			console.log(arguments[i]);
+		}
+		console.log("---------------------------");
+	}
+	fn1();
+	fn1(10);
+	fn1(100, 200);
+	fn1(10000, 20000, 30000, 40000);
+</script>
+</body>
+</html>

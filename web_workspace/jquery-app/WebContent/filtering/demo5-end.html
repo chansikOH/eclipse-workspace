@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="keyword-box">
+		<h3>실시간 이슈 검색어</h3>
+		<ol>
+			<li>류현진 중계</li>
+			<li>mbc 스포츠 플러스</li>
+			<li>수상한 장모</li>
+			<li>스롱 피아비</li>
+			<li>양선화</li>
+			<li>손정혜</li>
+			<li>복면가왕</li>
+			<li>한승훈</li>
+			<li>소지섭</li>
+		</ol>
+	</div>
+	
+	<script type="text/javascript">
+		// $(선택자).필터함수1().필터함수2().end()
+		// end()는 맨 마지막 필터함수 실행 전 상태로 검색결과를 되돌린다.
+		$('#keyword-box li').first().css('font-size', '25px')		// li중에서 첫번째 li만 조작
+							.end().css('color', 'red');				// 모든 li에 대해서 조작
+							
+		// $(li).css('color', 'red').first().css('font-size', '25px')
+	</script>
+</body>
+</html>

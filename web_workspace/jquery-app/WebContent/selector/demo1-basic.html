@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<div id="page">
+		<h1 id="header">목록</h1>
+		<h2>구입물품 목록</h2>
+		<ul>
+			<li id="one" class="hot"><em>뜨거운</em> 라떼</li>
+			<li id="two" class="cold">냉동만두</li>
+			<li id="three" class="cold">우유</li>
+			<li id="four" class="hot">피자</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		// jQuery 기본선택자
+		
+		// 1. 전체 선택자
+		// 		$('*') : html문서내의 모든 엘리먼트를 선택한다.
+		$('*').css('color', 'lightgreen');
+		
+		// 2. 태그 선택자
+		//		$('태그명') : html문서에서 태그명에 해당하는 모든 엘리먼트를 선택한다.
+		$('h1').css('color', 'red');
+		$('li').css('color', 'maroon');
+		
+		// 3. 아이디 선택자
+		//		$('#아이디') : html문서에서 아이디에 해당하는 첫번째 엘리먼트를 선택한다.
+		$('#one').css('background-color', 'lightgray');
+		$('#three').css('background-color', 'lightblue')
+		
+		// 4. 클래스 선택자
+		//		$('.클래스') : html문서에서 class 속성값이 지정된 클래스를 포함하고 있는 모든 엘리먼트를 선택한다.
+		$('.hot').css('border', '2px solid red').css('padding', '10px');
+		
+		// 5. 다중 선택자
+		// 		$('선택자, 선택자') : html 문서에서 제시된 각각의 선택자에 해당하는 모든 엘리먼트를 선택한다.
+		$('.cold, h2').css('border', '2px solid blue');
+		
+		// 6. 필터링하기
+		//		$('선택자1선택자2') : 선택자1로 선택된 엘리먼트 중에서 선택자2에 해당하는 것만 선택한다. 
+		$('li.cold'); 	// li 이면서 클래스가 cold인 엘리먼트 선택 --> 2개 선택된
+		$('ul.cold');	// ul 이면서 클래스가 cold인 엘리먼트 선택 --> 선택된 엘리먼트 없음
+	</script>
+</body>
+</html>

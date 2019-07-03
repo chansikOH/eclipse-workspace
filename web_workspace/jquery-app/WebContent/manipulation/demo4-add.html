@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	div {
+		padding: 20px;
+		margin: 20px;
+		border: 2px dashed red;
+	}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="outer-box">
+		<div id="inner-box">
+			<p>내용1내용1내용1내용1내용1내용1내용1내용1내용1</p>
+			<p>내용2내용2내용2내용2내용2내용2내용2내용2내용2</p>
+			<p>내용3내용3내용3내용3내용3내용3내용3내용3내용3</p>
+		</div>
+	</div>
+	
+	<div>
+		<button onclick="fn1()">Append</button>
+		<button onclick="fn2()">Prepend</button>
+		<button onclick="fn3()">After</button>
+		<button onclick="fn4()">Before</button>
+	</div>
+	
+	<script type="text/javascript">
+		// 엘리먼트(태그) 추가하기
+		// 1. $(selector).append('html태그') : 선택된 엘리먼트의 컨텐츠 끝에 추가한다.
+		//										* 선택된 엘리먼트의 마지막번째 자식으로 추가된다.
+		function fn1() {
+			$('#inner-box').append('<p>Append Append Append Append</p>');
+		}
+		
+		// 2. $(selector).prepend('html태그') : 선택된 엘리먼트의 컨텐츠 시작부분에 추가한다.
+		//										* 선택된 엘리먼트의 첫번째 자식으로 추가된다.		
+		function fn2() {
+			$('#inner-box').prepend('<p>Prepend Prepend Prepend Prepend</p>');
+		}
+		
+		// 3. $(selector).after('html태그') : 선택된 엘리먼트의 뒤에 추가한다.
+		//										* 선택된 엘리먼트의 동생으로 추가된다.
+		function fn3() {
+			$('#inner-box').after('<p>After After After After</p>');
+		}
+		
+		// 4. $(selector).before('html태그') : 선택된 엘리먼트의 앞에 추가한다.
+		//										* 선택된 엘리먼트의 형으로 추가된다.
+		function fn4() {
+			$('#inner-box').before('<p>Before Before Before Before</p>');
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/* 
+		자바스크립트의 함수는 다양한 반환값을 제공할 수 있다.
+			1. 반환값이 명시되어 있지 않는 경우 - undefined 반환
+			2. 반환값으로 기본 자료형값 반환 가능
+			3. 반환값으로 객체 반환 가능
+			4. 반환값으로 함수 반환 가능
+			5. 반환값으로 제공받은 함수 실행 가능
+	*/
+	function fn1() {
+		
+	}
+	console.log(fn1());
+	
+	function fn2() {
+		return 10;
+	}
+	console.log(fn2());
+	
+	function fn3() {
+		return {
+			name:'홍길동',
+			tel:'010-2222-3333'
+		}
+	}
+	console.log(fn3());
+	
+	function fn4() {
+		return function() {
+			console.log('zz');
+		}
+	}
+	console.log(fn4());
+	
+	function fn5(a, b) {
+		var c = a + b;
+		return function(x) {
+			var result = c*x;
+			return result;
+		}
+	}
+	var f = fn5(2, 5);
+	console.log(f(2));
+	console.log(f(3));
+	console.log(f(4));
+</script>
+</body>
+</html>

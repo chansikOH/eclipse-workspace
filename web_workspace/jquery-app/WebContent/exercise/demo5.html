@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.comment {padding:10px; border:1px solid #eee;}
+		.comment-header {border-bottom: 1px solid #eee; padding-bottom: 5px;}
+		.comment-body {padding-top: 5px;}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>댓글 달기</h1>
+	</div>
+	
+	<table class="table">
+		<colgroup>
+			<col width="10%">
+			<col width="90%">
+		</colgroup>
+		<tbody>
+			<tr>
+				<th>제목</th>
+				<td>오늘부터 음주운전 기준이 달라집니다.</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td>
+					내일(25일)부터 '제2의 윤창호법'으로 불리는 개정 도로교통법이 시행돼 음주운전 적발 기준인 혈중알코올농도 하한이 0.05%에서 0.03%로 대폭 강화된다. '소주 한 잔'만 마셔도 음주운전에 적발될 수 있는 수치다. 이에 따라 전날 술 마시고 자고 일어난 아침에도 음주운전 단속에 적발될 가능성이 높아졌다.
+					도로교통법 개정되기 전에도 아침 '숙취'로 인해 음주운전 단속에 적발된 사례가 있다. 삼성 라이온즈의 외야수 박한이(40)는 지난달 26일 대구에서 경기를 마친 뒤 지인들과 늦은 저녁식사에서 술을 마셨다. 경기가 끝난 데다 휴식일 전날이라 모처럼 편하게 술자리를 가졌을 것.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="comment-form-box">
+		<div class="well">
+			<input type="text" class="form-control" id="comment-field" placeholder="댓글을 입력하려면 클릭하세요"/>
+		</div>
+		<div class="well">
+			<form>
+				<div class="form-group">
+					<textarea rows="5" class="form-control" id="comment-area"></textarea>
+				</div>
+				<div class="form-group">
+					<label> 0 / 300 </label>
+					<button type="button" class="btn btn-default pull-right" id="btn-add-comment">등록</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div class="comments-box">
+		<div class="comment">
+			<div class="comment-header">홍길동 <small>3시간전</small></div>
+			<div class="comment-body">
+				내일부터 술먹으면 안되겠다. 금주해야지
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$('.comment-form-box .well:eq(1)').hide();
+		
+		$('#comment-field').focus(function() {
+			$('.comment-form-box .well:eq(0)').hide();
+			$('.comment-form-box .well:eq(1)').show();
+			$('#comment-area').focus();
+		})
+		
+		$('#comment-area').keyup(function() {
+			var textLength = $(this).val().length;
+			$(this).closest('form').find('label').text(textLength + ' / 300');
+			if(textLength > 300) {
+				$(this).closest('form').find('label').css('color', 'red');
+			} else {
+				$(this).closest('form').find('label').css('color', 'black');
+			}
+		})
+		
+		$('#btn-add-comment').click(function() {
+			var comment = $('#comment-area').val();
+			if(comment.length > 300) {
+				alert('입력 가능한 글자수를 초과하였습니다.');
+				return;
+			}
+			
+			console.log(comment);
+			var row = '<div class="comment">';
+			row += '<div class="comment-header"> 홍길동 <small>지금</small></div>';
+			row += '<div class="comment-body">';
+			row += comment;
+			row += '</div>';
+			row += '</div>';
+			
+			$('.comments-box').prepend(row);
+			$('#comment-area').val('');
+			$('.comment-form-box .well:eq(0)').show();
+			$('.comment-form-box .well:eq(1)').hide();
+		})
+	</script>
+</div>
+</body>
+</html>

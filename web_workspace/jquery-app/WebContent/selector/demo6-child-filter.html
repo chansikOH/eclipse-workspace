@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="singer-box">
+		<h3>좋아하는 가수</h3>
+		<ol>
+			<li>피터팬컴플렉스</li>
+			<li>러블리즈</li>
+			<li>아이즈원</li>
+			<li>이그니토</li>
+			<li>허클베리피</li>
+		</ol>
+	</div>
+	
+	<div id="fruit-box">
+		<h3>좋아하는 과일</h3>
+		<ol>
+			<li>사과</li>
+			<li>바나나</li>
+			<li>멜론</li>
+			<li>포도</li>
+		</ol>
+	</div>
+	
+	<div id="food-box">
+		<h3>좋아하는 음식</h3>
+		<ol>
+			<li>회</li>
+			<li>더덕무침</li>
+			<li>된장찌개</li>
+			<li>냉소바</li>
+			<li>초밥</li>
+		</ol>
+	</div>
+	
+	<div id="snack-box">
+		<h3>좋아하는 과자</h3>
+		<ul>
+			<li>초코땡(절판)</li>
+			<li>듀팝스(절판)</li>
+			<li>초코파이</li>
+			<li>초코찰떡파이</li>
+			<li>에너지바</li>
+			<li>포카칩</li>
+			<li>눈을감자</li>
+			<li>칸쵸</li>
+			<li>빈츠</li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+		$('body').css('border', '3px dashed lightpink');
+		// 자식요소 선택자
+		// 1. 부모요소의 첫번재 자식을 선택한다.
+		//		$('선택자:first-child') : 선택자로 선택된 엘리먼트 중에서 부모의 첫번째 자식인 것만 선택한다.
+		// 2. 부모요소의 마지막번째 자식을 선택한다.
+		//		$('선택자:last-child') : 선택자로 선택된 엘리먼트 중에서 부모의 마지막번째 자식인 것만 선택한다.
+		// 3. 부모요소의 n번째 자식을 선택한다.
+		//		$('선택자:nth-child(n)') : 선택자로 선택된 엘리먼트 중에서 부모의 n번째 자식인 것만 선택한다.
+		// 									* n은 1부터 시작한다.
+		
+		// 모든 li 중에서 첫번째 것 찾기
+		$('li:first').css('background-color', 'yellow');
+		// 모든 li 중에서 마지막번째 것 찾기
+		$('li:last').css('background-color', 'lightgreen');
+		// 모든 li 중에서 2번째 것 찾기
+		$('li:eq(1)').css('background-color', 'pink');
+		
+		// 모든 li 중에서 부모의 첫번째 자식인 것 찾기
+		$('li:first-child').css('font-size', '30px');
+		// 모든 li 중에서 부모의 마지막번째 자식인 것 찾기
+		$('li:last-child').css('font-size', '8px');
+		// 모든 li 중에서 부모의 2번째 자식인 것 찾기
+		$('li:nth-child(2)').css('font-size', '50px');
+		
+		// 1번째, 4번째, 7번째 과자 선택
+		$('#snack-box li:nth-child(3n + 1)').css('color', 'red');
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<h3>성적 정보</h3>
+	<table border="1" style="width: 100%">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>총점</th>
+				<th>평균</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="pass">
+				<td>1</td>
+				<td>홍길동</td>
+				<td>300</td>
+				<td>60</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>김유신</td>
+				<td>200</td>
+				<td>40</td>
+			</tr>
+			<tr class="pass">
+				<td>3</td>
+				<td>강감찬</td>
+				<td>500</td>
+				<td>100</td>
+			</tr>
+			<tr class="pass">
+				<td>4</td>
+				<td>이순신</td>
+				<td>450</td>
+				<td>90</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script type="text/javascript">
+		// tr중에서 클래스가 pass인 것 선택 --> tr이 선택됨
+		//$('tbody tr.pass');
+		
+		// 필터링 함수
+		// 1. $('selector1').filter(selector2)
+		$('tbody tr').filter('.pass').css('background-color', 'lightgreen');
+		
+		
+		// 2. $('selector').filter(function(index, el) { ... })
+		$('tbody tr td:last-child').filter(function(index, el) {
+			return false;
+		}).css('color', 'red');
+	</script>
+</body>
+</html>

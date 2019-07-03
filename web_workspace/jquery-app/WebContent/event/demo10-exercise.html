@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<style type="text/css">
+	 .image-box{
+	 	float: left;
+		border: 1px dashed silver;
+		text-align: center;
+		width: 200px;
+		height: 340px;
+		padding: 5px;
+		margin: 10px;
+	}
+	.image-box img {
+		width: 188px;
+		height: 208px;
+	}
+	.image-box p {
+		padding: 5px;
+		text-align: left;
+	}
+</style>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="gallary">
+		<div class="image-box">
+			<h4>나코1</h4>
+			<img src="../images/3.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+		<div class="image-box">
+			<h4>나코2</h4>
+			<img src="../images/4.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+		<div class="image-box">
+			<h4>나코3</h4>
+			<img src="../images/5.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+		<div class="image-box">
+			<h4>나코4</h4>
+			<img src="../images/6.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+		<div class="image-box">
+			<h4>나코5</h4>
+			<img src="../images/7.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+		<div class="image-box">
+			<h4>나코6</h4>
+			<img src="../images/8.gif" />
+			<p>나코가 귀여운 사진.</p>
+		</div>
+	</div>
+	
+	<hr  style="clear:both;"/>
+	
+	<div id="photo-info">
+		<h3></h3>
+		<img src="" width="400px" height="500px" style="display: none;">
+		<p></p>
+	</div>
+	
+	<script type="text/javascript">
+		// 사진을 클릭하면 그 사진의 정보가 아래쪽에 표시되도록 한다.
+		$('#gallary .image-box img').click(function(event) {
+			var imageName = $(this).prev().text();
+			var imagePath = $(this).attr('src');
+			var imageInfo = $(this).next().text();
+			
+			/* $('#photo-info h3').text(imageName);
+			$('#photo-info img').attr('src', imagePath).css('display', 'block');
+			$('#photo-info p').text(imageInfo); */
+			
+			$('#photo-info').find('img').attr('src', imagePath).css('display', 'block')
+							.end().find('h3').text(imageName)
+							.end().find('p').text(imageInfo);
+		});
+	</script>
+</body>
+</html>

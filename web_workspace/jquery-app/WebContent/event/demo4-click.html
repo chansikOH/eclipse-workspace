@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	.image-thumbnail img {
+		cursor: pointer;
+		width: 100px;
+		height: 100px;
+		opacity: 0.5;
+	}
+	.image-gallery img {
+		width: 300px;
+		height: 300px;
+	}
+</style>
+</head>
+<body>
+	<h1>클릭 이벤트 연습</h1>
+	
+	<div class="image-gallery">
+		<img src="../images/2.jpg" id="image-box">
+	</div>
+	
+	<div class="image-thumbnail">
+		<img src="../images/2.jpg">
+		<img src="../images/1.png">
+	</div>
+	
+	<script type="text/javascript">
+		$('.image-thumbnail img').hover(function(event) {
+			$(this).css('opacity', '1');
+		}, function(event) {
+			$(this).css('opacity', '0.5');
+		});
+		$('.image-thumbnail img').click(function(event) {
+			var imagepath = $(this).attr('src');
+			$('#image-box').attr('src', imagepath);
+		});
+	</script>
+</body>
+</html>

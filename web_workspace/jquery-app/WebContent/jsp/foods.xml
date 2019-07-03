@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<foodlist>
+	<food>
+		<name type="과일">사과</name>
+		<price>3000원</price>
+		<discount_price>2700원</discount_price>
+	</food>
+	<food>
+		<name type="음료">콜라</name>
+		<price>1500원</price>
+		<discount_price>1200원</discount_price>
+	</food>
+	<food>
+		<name type="주류">맥주</name>
+		<price>1700원</price>
+		<discount_price>1400원</discount_price>
+	</food>
+</foodlist>

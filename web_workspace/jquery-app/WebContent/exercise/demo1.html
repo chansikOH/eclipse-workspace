@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>인사관리 프로그램</h1>
+		</div>
+		
+		<div id="menu-tab">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="" id="home">홈</a></li>
+				<li><a href="#" id="working">근태관리</a></li>
+				<li><a href="#" id="score">인사고가 관리</a></li>
+				<li><a href="#" id="vacation">휴가 관리</a></li>
+			</ul>
+		</div>
+		
+		<div id="contents-box">
+			<div id="home-box" class="panel panel-default">
+				<div class="panel-heading">인사관리 메인</div>
+				<div class="panel-body">
+					<p>인사관리 홈 페이지 입니다.</p>
+					<p>인사관리 홈 페이지 입니다.</p>
+					<p>인사관리 홈 페이지 입니다.</p>
+				</div>
+			</div>
+			
+			<div id="working-box" class="panel panel-default">
+				<div class="panel-heading">근태관리 화면</div>
+				<div class="panel-body">
+					<p>근태관리 홈 페이지 입니다.</p>
+					<p>근태관리 홈 페이지 입니다.</p>
+					<p>근태관리 홈 페이지 입니다.</p>
+				</div>
+			</div>
+			
+			<div id="score-box" class="panel panel-default">
+				<div class="panel-heading">인사고가 관리 화면</div>
+				<div class="panel-body">
+					<p>인사고가 관리 홈 페이지 입니다.</p>
+					<p>인사고가 관리 홈 페이지 입니다.</p>
+					<p>인사고가 관리 홈 페이지 입니다.</p>
+				</div>
+			</div>
+			
+			<div id="vacation-box" class="panel panel-default">
+				<div class="panel-heading">휴가관리 화면</div>
+				<div class="panel-body">
+					<p>휴가관리 홈 페이지 입니다.</p>
+					<p>휴가관리 홈 페이지 입니다.</p>
+					<p>휴가관리 홈 페이지 입니다.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		// 탭의 a태그를 클릭할 때마다 해당 탭이 활성화되고,
+		// (a 태그에서 클릭이벤트 발생시 기본동작 방해 해야함)
+		// 탭과 관련된 패널이 표시되도록 한다.
+		$('#contents-box .panel').not('#home-box').hide();
+		$('#menu-tab a').click(function(event) {
+			event.preventDefault();
+			$('.panel').hide().filter('#' + $(this).attr('id') + '-box').show();
+			$(this).parent().addClass('active').siblings().removeClass('active');
+		});
+	</script>
+</body>
+</html>

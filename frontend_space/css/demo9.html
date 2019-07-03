@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box-2, #box-3 {display: none;}
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="showBox1()">뉴스</button>
+        <button onclick="showBox2()">연예</button>
+        <button onclick="showBox3()">스포츠</button>
+    </div>
+    
+    <div id="box-1">
+        <ul>
+            <li>남북 전쟁 임박</li>
+            <li>남북 전쟁 임박</li>
+            <li>남북 전쟁 임박</li>
+        </ul>
+    </div>
+    <div id="box-2">
+        <ul>
+            <li>BTS 사망</li>
+            <li>BTS 사망</li>
+            <li>BTS 사망</li>
+        </ul>
+    </div>
+    <div id="box-3">
+        <ul>
+            <li>류현진 사망</li>
+            <li>류현진 사망</li>
+            <li>류현진 사망</li>
+        </ul>
+    </div>
+    <script>
+        function hideAllBox() {
+            document.getElementById("box-1").style.display = "none";
+            document.getElementById("box-2").style.display = "none";
+            document.getElementById("box-3").style.display = "none";
+        }
+        
+        function showBox1() {
+            hideAllBox();
+            document.getElementById("box-1").style.display = "block";
+        }
+        
+        function showBox2() {
+            hideAllBox();
+            document.getElementById("box-2").style.display = "block";
+        }
+        
+        function showBox3() {
+            hideAllBox();
+            document.getElementById("box-3").style.display = "block";
+        }
+    </script>
+</body>
+</html>

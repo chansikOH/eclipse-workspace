@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>ajax 연습</h1>
+		
+		<div>
+			추첨번호 받기 <button id="btn">조회</button>
+		</div>
+		
+		<div id="box">
+			추첨번호 : <span id="sp-box"></span>
+		</div>
+		
+		<script type="text/javascript">
+			$('#btn').click(function() {
+				$.get('../jsp/server1.jsp', function(data) {
+					$('#sp-box').text(data);
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>

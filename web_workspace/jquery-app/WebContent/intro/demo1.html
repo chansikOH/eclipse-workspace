@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box-1">
+		<p class="heading">뉴스 속보</p>
+		<p>지구 멸망 카운트다운 시작</p>
+		<p>달 뒷면에서 외계 우주선 발견</p>
+	</div>
+	<div id="box-2">
+		<p class="heading">스포츠 속보</p>	
+		<p>한국 월드컵 우승</p>	
+		<p>류현진 사이영상 수상</p>	
+	</div>
+	<script type="text/javascript">
+		$('h1').css('color', 'red');
+		$('p').css('color', 'green');
+		$('.heading').css('font-size', '25px').css('font-weight', 'bold').css('color', 'black');
+	</script>
+</body>
+</html>

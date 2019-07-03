@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	div {
+		padding: 20px;
+		margin: 20px;
+		border: 2px dashed red;
+	}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box-1">
+		<h3>뉴스</h3>
+		<ul>
+			<li>한서희</li>
+			<li>이승훈</li>
+			<li>전영록 김성현</li>
+		</ul>
+	</div>
+	<div id="box-2">
+		<h3>뉴스</h3>
+		<ul>
+			<li>한서희</li>
+			<li>이승훈</li>
+			<li>전영록 김성현</li>
+		</ul>
+	</div>
+	
+	<div>
+		<button onclick="fn1()">Empty</button>
+		<button onclick="fn2()">Remove</button>
+	</div>
+	
+	<script type="text/javascript">
+		// 엘리먼트 지우기
+		// 1. $(selector).empty() : 선택된 엘리먼트의 하위 엘리먼트를 삭제한다.
+		function fn1() {
+			$('#box-1').empty()
+		}
+			
+		// 2. $(selector).remove() : 선택된 엘리먼트를 삭제한다.(하위 엘리먼트도 삭제)
+		function fn2() {
+			$('#box-2').remove()
+		}
+	</script>
+</body>
+</html>

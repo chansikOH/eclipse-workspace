@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<h3>신규 영화 등록</h3>
+	<form id="movie-form">
+		<p><label>영화제목</label> <input type="text" name="name" /></p>
+		<p><label>영어제목</label> <input type="text" name="title" /></p>
+		<p><label>트레일러</label> <input type="file" name="vedio" /></p>
+		<p><label>영화평점</label> <input type="text" name="point" /></p>
+		<p><label>영화등급</label> <select name="grade">
+										<option value="0">전체관람가</option>
+										<option value="12">12세 이상 관람가</option>
+										<option value="15" selected="selected">15세 이상 관람가</option>
+										<option value="19">19세 이상 관람가</option>
+								   </select></p>
+		<p><label>영화장르</label> <input type="checkbox" name="genre" />드라마
+								<input type="checkbox" name="genre" checked="checked"/>액션
+								<input type="checkbox" name="genre" />애니메이션
+								<input type="checkbox" name="genre" checked="checked"/>스릴러
+								<input type="checkbox" name="genre" checked="checked"/>공포
+								<input type="checkbox" name="genre" />환타지
+								<input type="checkbox" name="genre" />SF
+								<input type="checkbox" name="genre" />코메디
+								<input type="checkbox" name="genre" />뮤지컬
+								</p>
+		<p><label>제작국가</label> <input type="radio" name="nation" />한국
+								<input type="radio" name="nation" checked="checked"/>미국
+								<input type="radio" name="nation" />일본
+								<input type="radio" name="nation" />중국
+								<input type="radio" name="nation" />유럽
+								<input type="radio" name="nation" />기타
+								</p>
+		<p><label>개봉일자</label> <input type="date" name="opendate" /></p>
+		<p><label>상영시간</label> <input type="number" name="runningtime" /></p>
+		<p><label>감독이름</label> <input type="text" name="director" /></p>
+		<p><label>영화소개</label> <textarea rows="5" name="summary"></textarea></p>
+		<p><button type="submit">등록</button><button type="reset">취소</button></p>
+	</form>
+	
+	<script type="text/javascript">
+		// 폼요소 필터 선택자
+		// <form> 태그내의 input, checkbox, radio, select, textarea 등을 선택할 때 사용한다.
+		
+		// 1. $(':input') : 모든 입력요소를 선택한다.
+		// 					* input, checkbox, radio, select, textarea를 선택
+		
+		// 2. $(':text'), $(':password'), $(':radio'), $(':checkbox'), $(':file'), $(':submit'), $(':reset') 
+		//		type을 기준으로 대응되는 폼요소를 선택한다.
+		// 트레일러 입력필드를 선택해서 비활성화시키기
+		$(':file').prop('disabled', true);	// $('[type=file]')
+		$(':text').prop('disabled', true);	// $('[type=text]')
+		
+		// 3. $(':selected') : <select>에서 선택된 옵션을 찾는다.
+		// 현재 선택된 영화등급을 선택해서 선택된 값 조회하기
+		var grade = $('[name=grade] :selected').text();
+		alert(grade);
+		
+		// 4. $(':checked') : radio, checkbox에서 체크된 것들을 찾는다.
+		// 현재 체크된 영화장르를 선택해서 비활성화 시키기
+		$(':checkbox:checked').prop('disabled', true);
+		
+		// 5. $(':enable'), $(':disabled') : 폼 요소에서 활성화, 비활성화된 것을 찾는다.
+		// 비활성화된 요소를 전부 찾아서 활성화시키기
+		$(':disabled').prop('disabled', false);
+	</script>
+</body>
+</html>

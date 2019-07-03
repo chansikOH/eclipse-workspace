@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .main-banner{width: 100%; height: 300px;}
+        .main-name{margin-top: 80px; display: block; text-align: center;}
+        .main-thumbnail{
+            border: 0;
+            position: relative;
+        }
+        .main-pro{text-decoration: none !important;}
+        .main-box{
+            width: 70px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="images/banner.jpg" class="main-banner">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="main-name">이 상품 어때요?</h2>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail main-thumbnail">
+                <a href="">
+                    <img src="images/pro01.jpg" class="main-pro">
+                    <div>
+                        <img src="images/icon35.jpg" class="main-box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                        <p class="line-through">14,000원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail main-thumbnail">
+                <a href="">
+                    <img src="images/pro02.jpg" class="main-pro">
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail main-thumbnail">
+                <a href="" >
+                    <img src="images/pro03.jpg"class="main-pro">
+                    <div>
+                        <img src="images/icon20.jpg" class="main-box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                        <p class="line-through">3,500원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail main-thumbnail">
+                <a href="">
+                    <img src="images/pro04.jpg" class="main-pro">
+                    <div class="caption">
+                        <h5>[야미요밀] 8無 쑥 생쌀치아바타</h5>
+                        <p><strong>3,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>    
+</div>
+</body>
+</html>

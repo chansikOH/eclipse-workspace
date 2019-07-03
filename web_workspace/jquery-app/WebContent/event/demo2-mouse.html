@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	div {
+		padding: 40px;
+		margin: 20px;
+		border: 2px dashed red;
+	}
+</style>
+</head>
+<body>
+	<h1>마우스 이벤트</h1>
+	<div id="box-outter-1">
+		<div id="box-inner-1"></div>
+	</div>
+
+	<div id="box-outter-2">
+		<div id="box-inner-2"></div>
+	</div>
+	
+	<div id="box-outter-3">
+		<div id="box-inner-3"></div>
+	</div>
+	
+	<script type="text/javascript">
+		$('#box-outter-1').mouseenter(function(event) {
+			console.log('mouse enter');			
+		});
+		$('#box-outter-1').mouseleave(function(event) {
+			console.log('mouse leave');			
+		});
+
+		$('#box-outter-2').mouseover(function(event) {
+			console.log('mouse over');			
+		});
+		$('#box-outter-2').mouseout(function(event) {
+			console.log('mouse out');			
+		});
+		
+		$('#box-outter-3').hover(function(event) {
+			console.log('mouse enter');
+		}, function(event) {
+			console.log('mouse leave');
+		});
+	</script>
+</body>
+</html>

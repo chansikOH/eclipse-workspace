@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	.movie-box {
+		margin: 10px;
+		float: left;
+		padding: 20px;
+		border: 2px dashed gray; 
+	}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="movie-box-list">
+		<div class="movie-box">
+			<img src="../images/3.gif" style="width: 200px; height: 250px">
+			<div>
+				<button class="btn-ticket">예매</button>
+			</div>
+		</div>
+		
+		<div class="movie-box">
+			<img src="../images/4.gif" style="width: 200px; height: 250px">
+			<div>
+				<button class="btn-ticket">예매</button>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$('.movie-box').click(function(event) {
+			console.log('movie-box 클릭됨');
+		});
+		
+		$('.btn-ticket').click(function(event) {
+			// 이벤트 버블링을 중단시킨다.
+			event.stopPropagation();
+			console.log('btn-ticket 클릭됨');
+		});
+		
+		$('.movie-box img').click(function(event) {
+			console.log('img 클릭됨');
+			
+			// 이벤트 버블링을 중단시킨다.
+			return false;
+		});
+	</script>
+</body>
+</html>

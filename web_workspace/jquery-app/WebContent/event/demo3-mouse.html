@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	#left-menu-box {
+		position: relative;
+		width: 200px;
+		padding: 16px;
+		background-color: skyblue;
+		color: white;
+		font-weight: bolder;
+		font-size: 30px;
+		left: -180px;
+	}
+</style>
+</head>
+<body>
+	<h1>마우스 이벤트</h1>
+	
+	<div style="position: relative">
+		<div id="left-menu-box">
+			<ul>
+				<li>전체</li>
+				<li>뉴스</li>
+				<li>스포츠</li>
+				<li>연예</li>
+				<li>증권</li>
+				<li>쇼핑</li>
+			</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$('#left-menu-box').mouseenter(function(event) {
+			// $(this).css('left', '-10px');
+			$(this).animate({left: '-10px'}, 500);
+		});
+		$('#left-menu-box').mouseleave(function(event) {
+			// $(this).css('left', '-180px');
+			$(this).animate({left: '-180px'}, 500);
+		});
+	</script>
+</body>
+</html>

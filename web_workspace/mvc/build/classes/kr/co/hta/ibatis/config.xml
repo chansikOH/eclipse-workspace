@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	
+	<typeAlias alias="Board" type="kr.co.hta.vo.Board"/>
+	<typeAlias alias="Member" type="kr.co.hta.vo.Member"/>
+	<typeAlias alias="Criteria" type="kr.co.hta.vo.Criteria"/>
+	
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="oracle.jdbc.OracleDriver"/>
+			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+			<property name="JDBC.Username" value="hr"/>
+			<property name="JDBC.Password" value="zxcv1234"/>
+		</dataSource>
+	</transactionManager>
+	
+	<!-- 
+		SQL이 정의된 xml 파일의 이름 설정
+	 -->
+	<sqlMap resource="kr/co/hta/dao/boards.xml"/>
+	<sqlMap resource="kr/co/hta/dao/member.xml"/>
+</sqlMapConfig>

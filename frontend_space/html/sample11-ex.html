@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th, td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+   <h1>테이블 칸 병합연습</h1>
+   
+   <h2>가로 방향 연습</h2>
+    <table border="1" style="width: 100%;">
+        <tr>
+            <th>이름</th>
+            <td>홍길동</td>
+            <th>연락처</th>
+            <td>010-1111-1111</td>
+        </tr>
+        <tr>
+            <th>주소</th>
+            <td colspan="3">서울시 종로구</td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td colspan="3">hong@gmail.com</td>
+        </tr>
+    </table>
+    <hr />
+    <table border="1" style="width: 100%;">
+        <tr>
+            <th>구분</th>
+            <th colspan="2">상반기</th>
+            <th colspan="2">하반기</th>
+        </tr>
+        <tr>
+            <th rowspan="3">영업1팀</th>
+            <td colspan="2">매입/매출 현황</td>
+            <td colspan="2">매입/매출 현황</td>
+        </tr>
+        <tr>
+            <td>매입</td>
+            <td>10억</td>
+            <td>매입</td>
+            <td>15억</td>
+        </tr>
+        <tr>
+            <td>매출</td>
+            <td>20억</td>
+            <td>매출</td>
+            <td>17억</td>
+        </tr>
+        <tr>
+            <th>비고</th>
+            <td colspan="4">상반기에 비해서 하반기의 실적이 감소되었음</td>
+        </tr>
+    </table>
+</body>
+</html>

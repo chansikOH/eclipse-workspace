@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	.highlight {
+		background-color: yellow;
+	}
+	.big {
+		font-size: 40px;
+	}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box-1">
+		<h3>뉴스</h3>
+		<ul>
+			<li>사우디군, 오만해 유조선 공격 예맨반군과 연결</li>
+			<li>이란 최고지도자는 아베가 전달한 트럼프 메세지 무시</li>
+			<li>떠나는 트럼프 입, 샌더스 대변인</li>
+		</ul>
+		<div>
+			<button onclick="fn1()">추가</button>
+			<button onclick="fn2()">삭제</button>
+			<button onclick="fn3()">토글</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		// 클래스 조작하기
+		// 1. $(selector).addClass('클래스') : 선택된 엘리먼트의 클래스에 지정된 클래스를 추가한다.
+		function fn1() {
+			$('ul').addClass('highlight');
+		}
+		
+		// 2. $(selector).removeClass('클래스') : 선택된 엘리먼트에서 지정된 클래스를 제거한다.
+		function fn2() {
+			$('ul').removeClass('highlight');	
+		}
+		
+		// 3. $(selector).toggleClass('클래스') : 선택된 엘리먼트에서 지정된 클래스를 토글시킨다.
+		function fn3() {
+			$('ul').toggleClass('big');
+		}
+		
+		// 4. $(selector).hasClass('클래스') : 선택된 엘리먼트가 지정된 클래스를 가지고 있는 경우 true를 반환한다. 
+	</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>사원정보 조회</h1>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form-inline">
+					<div class="form-group">
+						<label>부서명 : </label>
+						<select class="form-control" id="dept-box">
+							<option value=""></option>
+							<option value="10"> Administration</option>
+							<option value="20"> Marketing</option>
+							<option value="30"> Purchasing</option>
+							<option value="40"> Human Resources</option>
+							<option value="50"> Shipping</option>
+							<option value="60"> IT</option>
+							<option value="70"> Public Relations</option>
+							<option value="80"> Sales</option>
+							<option value="90"> Executive</option>
+							<option value="100"> Finance</option>
+							<option value="110"> Accounting</option>
+						</select>
+						<button type="button" class="btn btn-default" id="btn-search">조회</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<table class="table" id="emp-table">
+					<thead>
+						<tr>
+							<th>사원 아이디</th>
+							<th>사원 이름</th>
+							<th>사원 이메일</th>
+							<th>사원 급여</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$('#btn-search').click(function(event) {
+				var deptId = $('#dept-box').val();
+				if(deptId == '') {
+					alert('조회할 부서를 선택하세요.');
+					return false;
+				}
+				
+				// server4.jsp?id=10&pno=1&sort=no 
+				// $.get('../jsp/server4.jsp', {id:10, pno=1, sort:"no"})
+				$.get('../jsp/server4.jsp', {id:deptId}, function(employees) {
+					$('#emp-table tbody').empty();
+					
+					for (var i=0; i<employees.length; i++) {
+						var employee = employees[i];
+						
+						var id = employee.id;
+						var name = employee.firstName + ' ' + employee.lastName;
+						var email = employee.email;
+						var salary = employee.salary;
+						
+						var row = '<tr>';
+						row += '<td>'+id+'</td>'
+						row += '<td>'+name+'</td>'
+						row += '<td>'+email+'</td>'
+						row += '<td>'+salary+'</td>'
+						row += '</tr>';
+						
+						$('#emp-table tbody').append(row);
+					}
+				});
+			});
+		</script>
+	</div>
+</body>
+</html>

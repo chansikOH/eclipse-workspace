@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>	
+	<typeAlias alias="Course" type="kr.co.hta.course.vo.Course"/>
+	<typeAlias alias="Comment" type="kr.co.hta.course.vo.Comment"/>
+	<typeAlias alias="Registration" type="kr.co.hta.course.vo.Registration"/>
+	<typeAlias alias="RegDetail" type="kr.co.hta.course.vo.RegistrationDetail"/>
+	
+	<insert id="insertCourse" parameterClass="Course">
+		insert into hta_courses
+		(course_no, course_title, course_start_date, course_end_date, course_cost, course_quota, course_description, course_img_name)
+		values
+		(course_seq.nextval, #title#, #startDate#, #endDate#, #cost#, #quota#, #description#, #imgName#)
+	</insert>
+	
+	<select id="getAllCourses" resultClass="Course">
+		select 
+			course_no no,
+			course_title title,
+			course_start_date startDate,
+			course_end_date endDate,
+			course_cost cost,
+			course_quota quota,
+			course_description description,
+			course_img_name imgName,
+			course_display_yn displayYn,
+			course_create_date createDate
+		from hta_courses
+		order by course_no desc
+	</select>
+	
+	<select id="getCourseByNo" parameterClass="int" resultClass="Course">
+		select 
+			course_no no,
+			course_title title,
+			course_start_date startDate,
+			course_end_date endDate,
+			course_cost cost,
+			course_quota quota,
+			course_description description,
+			course_img_name imgName,
+			course_display_yn displayYn,
+			course_create_date createDate
+		from hta_courses
+		where course_no = #value#
+	</select>
+	
+	<update id="updateCourse" parameterClass="Course">
+		update hta_courses
+		set
+			course_title = #title#,
+			course_start_date = #startDate#,
+			course_end_date = #endDate#,
+			course_cost = #cost#,
+			course_quota = #quota#,
+			course_description = #description#,
+			course_img_name = #imgName#,
+			course_display_yn = #displayYn#,
+			course_create_date = #createDate#
+		where course_no = #no#
+	</update>
+	
+	<select id="getRegCountByCourseNo" parameterClass="int" resultClass="int">
+		select 
+			count(*)
+		from hta_course_registrations
+		where course_no = #value#
+		and reg_status = 'S'
+	</select>
+	
+	<select id="getAvailableCourses" resultClass="Course">
+		select 
+			course_no no,
+			course_title title,
+			course_start_date startDate,
+			course_end_date endDate,
+			course_cost cost,
+			course_quota quota,
+			course_description description,
+			course_img_name imgName,
+			course_display_yn displayYn,
+			course_create_date createDate
+		from hta_courses
+		where course_display_yn = 'Y'
+		order by course_no desc
+	</select>
+	
+	<select id="getCommentsByCourseNo" parameterClass="int" resultClass="Comment">
+		select 
+			comment_no no,
+			comment_contents contents,
+			comment_create_date createDate,
+			member_name memberName,
+			course_no courseNo
+		from hta_course_comments
+		where course_no = #value#
+		order by comment_no desc
+	</select>
+	
+	<insert id="insertComment" parameterClass="Comment">
+		insert into hta_course_comments
+		(comment_no, comment_contents, member_name, course_no)
+		values
+		(comments_seq.nextval, #contents#, #memberName#, #courseNo#)
+	</insert>
+	
+	<insert id="insertRegistration" parameterClass="Registration">
+		insert into hta_course_registrations
+		(reg_no, course_no, member_id)
+		values
+		(reg_seq.nextval, #courseNo#, #memberId#)
+	</insert>
+	
+	<select id="getRegistrationDetail" parameterClass="string" resultClass="RegDetail">
+		select 
+			C.course_no courseNo,
+			C.course_title courseTitle,
+			C.course_start_date courseStartDate,
+			C.course_end_date courseEndDate,
+			C.course_img_name courseImgName,
+			R.reg_no regNo,
+			R.member_id memberId,
+			R.reg_status regStatus,
+			R.reg_create_date regCreateDate
+		from hta_course_registrations R, hta_courses C
+		where R.course_no = C.course_no
+		and R.member_id = #value#
+		order by reg_no desc
+	</select>
+	
+	<select id="getRegByCourseNoAndMemberId" parameterClass="map" resultClass="Registration">
+		select 
+			reg_no regNo,
+			course_no courseNo,
+			member_id memberId,
+			reg_status status,
+			reg_create_date
+		from hta_course_registrations
+		where course_no = #courseNo#
+		and member_id = #memberId#
+	</select>
+</sqlMap>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.2-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>부트스트랩 컴포넌트</h1>
+    
+    <h2>.btn-group 버튼그룹</h2>
+    <div class="btn-group">
+        <button class="btn btn-default">현금</button>
+        <button class="btn btn-primary">카드</button>
+        <button class="btn btn-default">이머니</button>
+    </div>
+    
+    <h2>.btn-group, .btn-group-justified 양쪽정렬되 버튼그룹</h2>
+    <div class="btn-group btn-group-justified">
+        <a class="btn btn-default">현금</a>
+        <a class="btn btn-primary">카드</a>
+        <a class="btn btn-default">이머니</a>
+        <a class="btn btn-default">무통장</a>
+        <a class="btn btn-default">네이버페이</a>
+    </div>
+    
+    <h2>.btn-group 드롭다운버튼</h2>
+    <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            신상품순 <span class="caret"></span>        
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="">가격순</a></li>
+            <li><a href="">평점순</a></li>
+            <li><a href="">리뷰순</a></li>
+        </ul>
+    </div>
+    
+    <h2>.badge 뱃지, .label 라벨</h2>
+    <div>
+        <button class="btn" style="background-color: purple; color: white">좋아요 <span class="badge" style="background-color: white; color: purple;">1</span></button>
+        <a href="">메일 <span class="badge">7</span></a>
+        <a href="">쪽지 <span class="badge">7</span></a>
+        <a href="">알림 <span class="badge">7</span></a>
+    </div>
+    <div>
+        <a href="">메일 <span class="label label-default">7</span></a>
+        <a href="">쪽지 <span class="label label-primary">7</span></a>
+        <a href="">알림 <span class="label label-success">7</span></a>
+        <a href="">요청 <span class="label label-info">7</span></a>
+        <a href="">주의 <span class="label label-warning">7</span></a>
+        <a href="">경고 <span class="label label-danger">7</span></a>
+    </div>
+    
+    <h2>.glyphicon 아이콘</h2>
+    <div>
+        <button class="btn btn-default"><span class="glyphicon glyphicon-heart" style="color: #f00"></span> 늘 사는 것</button>
+        <button class="btn btn-default"><span class="glyphicon glyphicon-heart" style="color: #ddd"></span> 늘 사는 것</button>
+    </div>
+    
+    <h2>.list-group, .list-group-item 목록그룹</h2>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item">인사 1팀 <span class="badge">3</span></li>
+            <li class="list-group-item">영업 1팀 <span class="badge">3</span></li>
+            <li class="list-group-item active">영업 2팀 <span class="badge">3</span></li>
+            <li class="list-group-item">총무팀 <span class="badge">3</span></li>
+        </ul>
+    </div>
+    <div>
+        <div class="list-group">
+            <a href="" class="list-group-item">링크1</a>
+            <a href="" class="list-group-item">링크2</a>
+            <a href="" class="list-group-item">링크3</a>
+            <a href="" class="list-group-item">링크4</a>
+        </div>
+    </div>
+    <div>
+        <div class="list-group">
+            <a href="" class="list-group-item">
+                <h4 class="list-group-item-heading">[속보] 트럼프 북한 방문</h4>
+                <p class="list-group-item-text">트럼프 대통령이 평양을 방문 한다나 뭐라나</p>
+            </a>
+             <a href="" class="list-group-item">
+                <h4 class="list-group-item-heading">[속보] 트럼프 북한 방문</h4>
+                <p class="list-group-item-text">트럼프 대통령이 평양을 방문 한다나 뭐라나</p>
+            </a>
+        </div>
+    </div>
+    
+    
+</div>
+</body>
+</html>

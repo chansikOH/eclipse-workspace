@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.2-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">판매현황</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th>상품명</th>
+                                <th>총판매금액</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>오뚜기 컵밥</td>
+                                <td>23,000,000 원</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>엄마 손맛 도시락</td>
+                                <td>17,000,000 원</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>매콤 삼각김밥</td>
+                                <td>12,400,000 원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Year', 'Sales', 'Expenses'],
+              ['2004',  1000,      400],
+              ['2005',  1170,      460],
+              ['2006',  660,       1120],
+              ['2007',  1030,      540]
+            ]);
+
+            var options = {
+              title: 'Company Performance',
+              curveType: 'function',
+              legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+          }
+        </script>
+            <div class="panel panel-primary">
+                <div class="panel-heading">판매분석</div>
+                <div class="panel-body">
+                    <div id="curve_chart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">신규 상품 현황</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                        <li class="list-group-item">달콤 삼각김밥<span class="badge">100</span></li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <p>
+                        기온 상승으로 인해 삼각김밥 유효기간이 매우 짧아졌습니다.
+                        판매시기를 놓치지 마세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

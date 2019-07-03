@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>select 태그 연습하기</h1>
+    
+    <form action="register.jsp">
+        <label>학력</label>
+        <select name="school">
+            <option value="E"> 초등학교 졸업</option>
+            <option value="M"> 중학교 졸업</option>
+            <option value="H"> 고등학교 졸업</option>
+            <option value="U" selected="selected"> 대학교 졸업</option>
+            <option value="G"> 대학원 졸업</option>
+        </select> <br />
+        
+        <label>전공</label>
+        <select name="major">
+            <optgroup label="인문대학">
+                <option value="KD"> 국어국문학과</option>
+                <option value="ED"> 영어영문학과</option>
+                <option value="BD"> 신문방송학과</option>
+            </optgroup>
+            <optgroup label="공과대학">
+                <option value="MD"> 기계공학과</option>
+                <option value="ELD"> 전기공학과</option>
+                <option value="ETD"> 전자공학과</option>
+                <option value="END"> 환경공학과</option>
+            </optgroup>
+            <optgroup label="자연대학">
+                <option value="MMD"> 수학과</option>
+                <option value="PD"> 물리학과</option>
+                <option value="CD"> 화학과</option>
+                <option value="BYD"> 생물학과</option>
+            </optgroup>
+        </select><br />
+        
+        <label>이메일</label>
+        <input type="text" name="eail1" />@
+        <select name="email2">
+            <option value="" disabled>선택하세요</option>
+            <option value="daum.net">다음</option>
+            <option value="naver.com">네이버</option>
+            <option value="google.com">구글</option>
+            <option value="natge.com">네이트</option>
+            <option value="D">직접 입력</option>
+        </select><br />
+        
+        <input type="submit" />
+    </form>
+</body>
+</html>

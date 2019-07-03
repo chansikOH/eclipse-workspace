@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	.active{border: 1px solid red;}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box">
+		<h3 id="box-heading">뉴스</h3>
+		<ul>
+			<li id="hot">한국 축구 결승 진출</li>
+			<li>류현진 사이영상 수상</li>
+			<li>추신수 홈런왕 등극</li>
+		</ul>
+	</div>
+	
+	<div id="form-box">
+		<form>
+			<p><label>작성자명</label>	<input type="text" name="username" value="홍길동"/></p>
+			<p><label>비밀번호</label>	<input type="password" name="userpwd" value="zxcv1234"/></p>
+			<p><label>거주지역</label>	<select name="city">
+											<option value="seoul"> 서울</option>
+											<option value="kyungi"> 경기</option>
+											<option value="incheon" selected="selected"> 인천</option>
+										</select></p>
+			<p><label>보유기술</label>	<input type="checkbox" name="tech" value="java"/>자바
+										<input type="checkbox" name="tech" value="c" checked="checked"/>C언어
+										<input type="checkbox" name="tech" value="python"/>파이썬
+										<input type="checkbox" name="tech" value="big"/>빅데이터</p>
+			<p><label>자기소개</label>	<textarea rows="3" name="memo">저는 홍길동입니다.</textarea></p>
+		</form>
+	</div>
+	
+	<div id="site-box">
+		<h3>SNS</h3>
+		<ul>
+			<li><a href="http://www.google.com">구글</a></li>
+			<li class="active"><a href="http://www.daum.net">다음</a></li>
+			<li><a href="http://www.naver.com">네이버</a></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript">
+		// 요소의 내용, html내용, 값, 속성을 조회하는 메소드
+		
+		// 1. $('선택자').text() : 요소(태그)가 포함하고 있는 텍스트 내용을 조회한다.
+		// h3태그의 텍스트 내용 조회하기
+		// $('h3') ---> 선택자 함수의 반환값 ===> jQuery 집합객체 = (선택된 엘리먼트 + 조작함수)
+		var text1 = $('h3').text();
+		console.log(text1);
+		var text2 = $('#box').text();
+		console.log(text2);
+		
+		// 2. $('선택자').html() : 요소(태그)가 포함하고 있는 html(태그 포함)을 조회한다.
+		var html1 = $('#box').html();
+		console.log(html1);
+		
+		// 3. $('선택자').val() : 폼 입력요소(태그)의 값을 조회한다.
+		//							(input, checkbox, radio, select, textarea 의 값을 조회한다.)
+		var name = $('[name=username]').val();
+		console.log('사용자명', name);
+		var pwd = $('[name=userpwd]').val();
+		console.log('비밀번호', pwd);
+		var city = $('[name=city]').val();
+		console.log('거주지역', city);
+		var tech = $('[name=tech]:checked').val();
+		console.log('보유기술', tech);
+		var memo = $('[name=memo]').val();
+		console.log('자기소개', memo);
+		
+		// 4. $('선택자').attr('속성명') : 지정된 속성명의 속성값을 조회한다.
+		var link = $('#site-box li.active a').attr('href');
+		console.log('링크', link);
+	</script>
+</body>
+</html>

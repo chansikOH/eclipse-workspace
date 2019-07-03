@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box-1">
+		<h3>뉴스</h3>
+		<p id="c-1">내용1내용1내용1내용1내용1내용1내용1내용1내용1내용1</p>
+		<p id="c-2">내용2내용2내용2내용2내용2내용2내용2내용2내용2내용2</p>
+		<p id="c-3">내용3내용3내용3내용3내용3내용3내용3내용3내용3내용3</p>
+		<p id="c-4">내용4내용4내용4내용4내용4내용4내용4내용4내용4내용4</p>
+		<p id="c-5">내용5내용5내용5내용5내용5내용5내용5내용5내용5내용5</p>
+	</div>
+	
+	<script type="text/javascript">
+		// 선택자 표현식을 활용해서 p중에서 첫번째 엘리먼트 검색하기
+		var 집합객체1 = $('p:first');
+		
+		// 선택자 표현식을 활용해서 조회된 모든 p엘리먼트가 들어있는 
+		// jQuery집합객체에서 first() 함수를 활용해서 첫번째 엘리먼트 검색하기
+		// 1. 선택자 함수를 실행해서 조회된 집합객체를 contents변수에 저장
+		var 집합객체2 = $('p');
+		// 2. p가 포함된 집합객체(contents에 저장된 집합객체)에서 first()함수로 첫번째 엘리먼트 검색하기
+		var 집합객체3 = contents.first();
+		
+		console.log(집합객체1, 집합객체2);
+</body>
+</html>

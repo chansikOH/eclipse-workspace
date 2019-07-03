@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .header-logo{
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        } 
+        .header-menu {
+            color: black;
+            text-align: center;
+            width: 190px;
+            font-size: 16px;
+        }
+        .nav-top {
+            height: 30px;
+            font-size: 11px;
+            color: black;
+        }
+        .nav-top-center{font-size: 11px;}
+        .search-btn{border: 0; background-color: #fff;}
+        .glyphicon-search{color: purple; margin-right: -30px}
+        .cart-icon{width: 30px; margin-top: 8px}
+        .badge{background-color: purple;}
+    </style>
+</head>
+<body>
+<div class="navbar navbar-reverse">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" class="nav-top">회원가입</a></li>
+                    <li><a href="" class="nav-top">로그인</a></li>
+                    <li class="dropdown">
+                    <a href="" class="dropdown-toggle nav-top" data-toggle="dropdown">고객센터<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-top-center">
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">자주하는 질문</a></li>
+                        <li><a href="">1:1문의</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="images/logo.png" class="header-logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-11">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle header-menu" data-toggle="dropdown">전체카테고리       <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">상위카테고리1</a></li>
+                            <li><a href="">상위카테고리2</a></li>
+                            <li><a href="">상위카테고리3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="header-menu">신상품</a></li>
+                    <li><a href="" class="header-menu">베스트</a></li>
+                    <li><a href="" class="header-menu">알뜰상품</a></li> 
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="search">
+                    </div>
+                    <button type="submit" class="btn search-btn"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <a href=""><img src="images/ico_cart_x2.jpg" class="cart-icon"><span class="badge">2</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

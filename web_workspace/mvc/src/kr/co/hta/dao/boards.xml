@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>	
+	<select id="getAllBoards" resultClass="Board">
+		select 
+			board_no no,
+			board_title title,
+			board_writer writer,
+			board_contents contents,
+			board_likes likes,
+			board_used_yn usedYn,
+			board_create_date createDate
+		from 
+			hta_boards
+		where 
+			board_used_yn = 'Y'
+		order by 
+			board_no desc
+	</select>
+	
+	<insert id="insertBoard" parameterClass="Board">
+		insert into hta_boards
+			(board_no, board_title, board_writer, board_contents)
+		values
+			(board_seq.nextval, #title#, #writer#, #contents#)
+	</insert>
+	
+	<select id="getBoardByNo" parameterClass="int" resultClass="Board">
+		select 
+			board_no no,
+			board_title title,
+			board_writer writer,
+			board_contents contents,
+			board_likes likes,
+			board_used_yn usedYn,
+			board_create_date createDate
+		from 
+			hta_boards
+		where 
+			board_no = #value#
+	</select>
+	
+	<select id="getBoardsCount" resultClass="int">
+		select
+			count(*)
+		from 
+			hta_boards
+		where 
+			board_used_yn = 'Y'
+		order by 
+			board_no desc
+	</select>
+	
+	<select id="getBoardByRange" parameterClass="map" resultClass="Board">
+		select 
+			no,	
+			title,
+			writer,
+			contents,
+			likes,
+			usedYn,
+			createDate
+		from 
+			(select 
+                    row_number() over (order by board_no desc) row_no, 
+					board_no no,
+					board_title title,
+					board_writer writer,
+					board_contents contents,
+					board_likes likes,
+					board_used_yn usedYn,
+					board_create_date createDate
+			from hta_boards
+            where board_used_yn = 'Y') 
+		where 
+			row_no &gt;= #begin#
+    	and
+			row_no &lt;= #end#
+		order by 
+			no desc
+	</select>
+	
+	<update id="updateBoard" parameterClass="Board">
+		update
+			hta_boards
+		set
+			board_title = #title#,
+			board_writer = #writer#,
+			board_contents = #contents#,
+			board_likes = #likes#,
+			board_used_yn = #usedYn#
+		where 
+			board_no = #no#
+	</update>
+	
+	<select id="getBoardList" parameterClass="Criteria" resultClass="Board">
+		select 
+			board_no no,
+			board_title title,
+			board_writer writer,
+			board_contents contents,
+			board_likes likes,
+			board_used_yn usedYn,
+			board_create_date createDate
+		from 
+			(select 
+				row_number() over (order by 
+				<dynamic>
+					<isEqual property="sort" compareValue="NEW">
+						board_no desc
+					</isEqual>
+					<isEqual property="sort" compareValue="OLD">
+						board_no asc
+					</isEqual>
+				</dynamic>	
+				) row_no,
+				A.*
+			from hta_boards A
+			where 1 = 1
+			<dynamic>
+				<isNotNull property="option">
+					<isEqual property="option" compareValue="title">
+						and board_title like '%' || #keyword# || '%'
+					</isEqual>
+					<isEqual property="option" compareValue="writer">
+						and board_writer like '%' || #keyword# || '%'
+					</isEqual>
+					<isEqual property="option" compareValue="content">
+						and board_content like '%' || #keyword# || '%'
+					</isEqual>
+				</isNotNull>
+			</dynamic>
+			)
+		where row_no &gt;= #beginIndex# and row_no &lt;= #endIndex#
+	</select>
+	
+	<select id="getRecords" parameterClass="Criteria" resultClass="int">
+		select count(*)
+		from hta_boards
+		where 1 = 1
+		<dynamic>
+			<isNotNull property="option">
+				<isEqual property="option" compareValue="title">
+					and board_title like '%' || #keyword# || '%'
+				</isEqual>
+				<isEqual property="option" compareValue="writer">
+					and board_writer like '%' || #keyword# || '%'
+				</isEqual>
+				<isEqual property="option" compareValue="content">
+					and board_content like '%' || #keyword# || '%'
+				</isEqual>
+			</isNotNull>
+		</dynamic>
+	</select>
+</sqlMap>

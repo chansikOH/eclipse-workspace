@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	.active{border: 1px solid red;}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="box">
+		<h3 id="box-heading">뉴스</h3>
+		<ul>
+			<li id="hot">한국 축구 결승 진출</li>
+			<li>류현진 사이영상 수상</li>
+			<li>류현진 사이영상 수상</li>
+			<li>추신수 홈런왕 등극</li>
+		</ul>
+	</div>
+	
+	<div id="form-box">
+		<form>
+			<p><label>작성자명</label>	<input type="text" name="username" value="홍길동"/></p>
+			<p><label>비밀번호</label>	<input type="password" name="userpwd" value="zxcv1234"/></p>
+			<p><label>거주지역</label>	<select name="city">
+											<option value="seoul"> 서울</option>
+											<option value="kyungi"> 경기</option>
+											<option value="incheon" selected="selected"> 인천</option>
+										</select></p>
+			<p><label>보유기술</label>	<input type="checkbox" name="tech" value="java"/>자바
+										<input type="checkbox" name="tech" value="c" checked="checked"/>C언어
+										<input type="checkbox" name="tech" value="python"/>파이썬
+										<input type="checkbox" name="tech" value="big"/>빅데이터</p>
+			<p><label>자기소개</label>	<textarea rows="3" name="memo">저는 홍길동입니다.</textarea></p>
+		</form>
+	</div>
+	
+	<div id="site-box">
+		<h3>SNS</h3>
+		<ul>
+			<li><a href="http://www.google.com">구글</a></li>
+			<li class="active"><a href="http://www.daum.net">다음</a></li>
+			<li><a href="http://www.naver.com">네이버</a></li>
+		</ul>
+	</div>
+	
+	<div id="img-box">
+		<img src="../images/2.jpg" style="width: 200px;">
+	</div>
+	
+	<script type="text/javascript">
+	// 요소의 내용, html내용, 값, 속성을 설정하는 메소드
+	// 1. $('선택자').text('컨텐츠') : 선택된 요소의 텍스트 컨텐츠를 변경한다.
+	$('#box-heading').text('뉴스 속보!!!!');
+	$('a:eq(1)').text('Daum');
+	$('#box li:last').text('추신수 역대 최대 계약금 갱신');
+	
+	// 2. $('선택자').html('html컨텐츠')
+	$('#box li:eq(1)').text('<strong>류현진</strong> 사이영상 수상확정!!!');
+	$('#box li:eq(2)').html('<strong>류현진</strong> 사이영상 수상확정!!!');
+	
+	// 3. $('선택자').val('값')
+	// input, checkbox, radio, select, textarea의 값을 변경한다.
+	// * checkbox, radio인 경우 체크여부를 변경하는 것이 아님
+	// * select인 경우 지정된 값을 가지는 <option>이 선택되게 한다.
+	// * textarea, 입력필드, 비밀번호 필드인 경우 입력값을 변경한다.
+	// *** <input type="file">인 경우에는 절대로 value값을 코드로 변경할 수 없다.
+	$('[name=username]').val('김유신');
+	$('[name=userpwd]').val('');			// 입력값을 지울때는 이렇게 사용한다.
+	$('[name=city]').val('seoul');
+	$('[name=memo]').val('나는 김유신입니다.');
+	
+	// 4. $('선택자').attr('속성명', '속성값')
+	// 요소(태그)에서 지정된 속성의 값을 변경하거나 새로 추가한다.
+	// 기존 src 속성의 값을 변경한다.
+	$('#img-box img').attr('src', '../images/1.png');
+	$('#img-box img').attr('alt', '55도발 왜하냐고')
+	</script>
+</body>
+</html>

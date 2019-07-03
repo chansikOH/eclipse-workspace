@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .detail-img {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+        .detail-title{
+            margin-bottom: 30px;
+        }
+        .detail-info-name{
+            color: #555;
+        }
+        .btn-modify, .btn-modify:hover{
+            background-color: purple;
+            color: white;
+            margin-top: 30px;
+            width: 100px;
+        }
+        .amt-pnm {
+            width: 40px;
+            text-align: center;
+            margin: 0px;
+        }
+        .amt-num{
+            width: 100px;
+            text-align: center;
+            margin: 0px;
+        }
+        .amt-btn {
+            border: 1px solid purple;
+        }
+        .price{
+            margin-top: 40px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .detail-btn-cart{
+            width: 100%;
+            height: 50px;
+            background-color: rebeccapurple;
+            color: white;
+            border: 0px;
+            font-size: 17px;
+            padding-top: 12px;
+        }
+        .detail-btn-likes{
+            width: 100%;
+            height: 50px;
+            border: 1px solid rebeccapurple;
+            background-color: white;
+            font-size: 17px;
+            padding-top: 12px;
+            color: rebeccapurple;
+        }
+        .glyphicon-heart-empty{
+            color: rebeccapurple;
+            font-size: 20px;
+        }
+        .detail-sale-box{
+            width: 50px;
+            position: absolute;
+            top: 35px;
+            left: 20px;
+        }
+        .detail-thumbnail {
+            margin-top: 30px; 
+            border: 0px;      
+        }
+        .detail-nav-tabs{
+            font-weight: bold;
+            margin-top: 15px;
+            border-bottom: 1px solid #aaa;
+            margin-bottom: 50px
+        }
+        .detail-nav-tabs > li.active > a,  .nav-tabs > li.active > a:hover{
+            font-weight: bold;
+            color: black;
+            border-top: 1px solid #aaa; 
+            border-left: 1px solid #aaa; 
+            border-right: 1px solid #aaa; 
+            width: 170px;
+            height: 40px;
+            text-align: center;
+        }
+        .detail-nav-tabs > li > a, .nav-tabs > li > a:hover {
+            background-color: #eee;
+            color: black;
+            border-top: 1px solid #aaa; 
+            border-left: 1px solid #aaa; 
+            border-right: 1px solid #aaa; 
+            padding-bottom: 3px;
+            border-bottom: 1px solid #aaa;
+            width: 170px;
+            height: 40px;
+            text-align: center;
+        }
+        .detail-text{
+            text-align: center;
+        }
+        .detail-text-in {
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+        .detail-table{
+            width: 100%;
+        }
+        .detail-review-sel {
+            position: absolute !important;
+            top: 70px;
+        }
+        .detail-hr-purple{
+            border: 1px solid purple;
+        }
+        .detail-btn-table{
+            width: 130px;
+            height: 30px;
+            border: 1px solid rebeccapurple;
+            background-color: rebeccapurple;
+            font-size: 15px;
+            color: white;
+            padding-top: 3px;
+        }
+        .detail-paging {
+            text-align: center;
+        }
+        .detail-pagination > li > a {
+            color: #555;
+        }
+        .detail-pagination > li > a:hover {
+            color: purple;
+            font-weight: bold;
+        }
+        .detail-pagination > li.active > a, .pagination > li.active > a:hover {
+            background-color: #aaa;
+            border: 1px solid #aaa;
+            color: purple;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5">
+            <img src="images/pro01.jpg" class="detail-img">
+        </div>
+        <div class="col-sm-7">
+            <div class="col-sm-12">
+                <div class="col-sm-8 detail-title">
+                    <h3>[삼대가] 불족발</h3>
+                    <p>화끈한 매운맛이 일품인</p>
+                </div>
+                <div class="col-sm-4">
+                    <a href="" class="btn btn-modify">수정하기</a>
+                </div>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>판매가</p>
+            </div>
+            <div class="col-sm-8">
+                <p><strong>14,000원</strong></p>
+            </div>
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>판매단위</p>
+                <p>중량/용량</p>
+            </div>
+            <div class="col-sm-8">
+                <p>세부정부 참조</p>
+                <p>세부정부 참조</p>
+            </div>
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>배송구분</p>
+            </div>
+            <div class="col-sm-8">
+                <p>택배배송</p>
+            </div>
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>포장타입</p>
+            </div>
+            <div class="col-sm-8">
+                <p>세부정부 참조</p>
+            </div>
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>유통기한</p>
+            </div>
+            <div class="col-sm-8">
+                <p>세부정부 참조</p>
+            </div>
+            <div class="col-sm-12">
+                <hr/>
+            </div>
+            <div class="col-sm-4 detail-info-name">
+                <p>구매수량</p>
+            </div>
+            <div class="col-sm-8">
+                <div class="col-sm-2">
+                    <a href="" class="btn amt-btn amt-pnm"><span class="glyphicon glyphicon-minus"></span></a>
+                </div>
+                
+                <div class="col-sm-2">
+                    <a href="" class="btn amt-btn amt-pnm"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+                <div class="col-sm-5"></div>
+            </div>
+            <div class="col-sm-12">
+                <p class="price">총 상품금액 : 14,000원</p>
+            </div>
+            <div class="col-sm-6">
+                <a href="" class="btn detail-btn-cart"><img src="images/ico_basket_v2.png"> 장바구니 담기</a>
+            </div>
+            <div class="col-sm-6">
+                <a href="" class="btn detail-btn-likes"><span class="glyphicon glyphicon-heart-empty"> </span> 늘 사는 것</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2">
+                <div class="thumbnail detail-thumbnail">
+                    <a href="">
+                        <img src="images/pro01.jpg">
+                        <div><img src="images/icon35.jpg" class="detail-sale-box"></div>
+                        <div class="caption">
+                            <h5>[오늘특가][삼대가] 불족발</h5>
+                            <p><strong>9,100원</strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="thumbnail detail-thumbnail">
+                    <a href="">
+                        <img src="images/pro02.jpg">
+                        <div class="caption">
+                            <h5>[벨지오이오소] 모짜렐라로그</h5>
+                            <p><strong>14,700원</strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="thumbnail detail-thumbnail">
+                    <a href="">
+                        <img src="images/pro03.jpg">
+                        <div>
+                            <img src="images/icon20.jpg" class="detail-sale-box">
+                        </div>
+                        <div class="caption">
+                            <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                            <p><strong>2,800원</strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="thumbnail detail-thumbnail">
+                    <a href="">
+                        <img src="images/pro03.jpg">
+                        <div>
+                            <img src="images/icon20.jpg" class="detail-sale-box">
+                        </div>
+                        <div class="caption">
+                            <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                            <p><strong>2,800원</strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="thumbnail detail-thumbnail">
+                    <a href="">
+                        <img src="images/pro03.jpg">
+                        <div>
+                            <img src="images/icon20.jpg" class="detail-sale-box">
+                        </div>
+                        <div class="caption">
+                            <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                            <p><strong>2,800원</strong></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs detail-nav-tabs">
+                <li class="presentation active"><a href="">상품설명</a></li>
+                <li class="presentation"><a href="">상품이미지</a></li>
+                <li class="presentation"><a href="">상세정보</a></li>
+                <li class="presentation"><a href="">고객후기(0)</a></li>
+                <li class="presentation"><a href="">상품문의(0)</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <img src="images/pro01.jpg" class="detail-img">
+            <h3 class="detail-text">화끈한 맛이 일품인</h3>
+            <h2 class="detail-text">[삼대가] 불족발</h2>
+            <hr/>
+            <p class="detail-text-in">국민 야식이라 불리는 족발은 남녀노소 누구에게나 인기있는 음식이죠. 간편하게 족발을 주문해 먹을 수 있지만, 때론 양이 많아 어떻게 처리해야 할지 걱정이 되기도 합니다. 좀 더 색다른 맛의 족발을 먹어보고 싶기도 하고 냄새가 날까 걱정이 되기도 하고요. 컬리는 이런 문제를 한 번에 해결할 수 있는 삼대가 불족발을 가져왔어요.</p>
+        </div>
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs detail-nav-tabs">
+                <li class="presentation"><a href="">상품설명</a></li>
+                <li class="presentation active"><a href="">상품이미지</a></li>
+                <li class="presentation"><a href="">상세정보</a></li>
+                <li class="presentation"><a href="">고객후기(0)</a></li>
+                <li class="presentation"><a href="">상품문의(0)</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <img src="images/gv30000041223_1.jpg" class="detail-img">
+        </div>
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs detail-nav-tabs">
+                <li class="presentation"><a href="">상품설명</a></li>
+                <li class="presentation"><a href="">상품이미지</a></li>
+                <li class="presentation active"><a href="">상세정보</a></li>
+                <li class="presentation"><a href="">고객후기(0)</a></li>
+                <li class="presentation"><a href="">상품문의(0)</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <img src="images/table001.PNG" class="detail-img">
+        </div>
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs detail-nav-tabs">
+                <li class="presentation"><a href="">상품설명</a></li>
+                <li class="presentation"><a href="">상품이미지</a></li>
+                <li class="presentation"><a href="">상세정보</a></li>
+                <li class="presentation active"><a href="">고객후기(0)</a></li>
+                <li class="presentation"><a href="">상품문의(0)</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+            <h5><strong>PRODUCT REVIEW</strong></h5>
+            <ul>
+                <li>상품에 대한 리뷰를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전 동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+                <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1문의에 남겨주세요.</li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <div>
+                <form action="">
+                    <div class="form-group">
+                        <select class="form-control detail-review-sel" name="" id="">
+                            <option value="">최근등록순</option>
+                            <option value="">도움많은순</option>
+                            <option value="">조회많은순</option>
+                        </select>
+                    </div>
+                </form>   
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <hr class="detail-hr-purple"/>
+        </div>
+        <div class="col-sm-12">
+            <table class="table detail-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="*%">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="5%">
+                    <col width="5%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>도움</th>
+                        <th>조회</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>맛있어요</td>
+                        <td><span class="badge">vip</span>홍길동</td>
+                        <td>2019-05-17</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>맛있어요</td>
+                        <td><span class="badge">vip</span>홍길동</td>
+                        <td>2019-05-17</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>맛있어요</td>
+                        <td><span class="badge">vip</span>홍길동</td>
+                        <td>2019-05-17</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <hr class="detail-hr-purple"/>
+        </div>
+        <div class="col-sm-2 col-sm-offset-10">
+            <a href="" class="btn detail-btn-table">후기 쓰기</a>
+        </div>
+        <div class="col-sm-12 detail-paging">
+            <ul class="pagination detail-pagination">
+                <li><a href="">&laquo;</a></li>
+                <li class="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+                <li><a href="">&raquo;</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs detail-nav-tabs">
+                <li class="presentation"><a href="">상품설명</a></li>
+                <li class="presentation"><a href="">상품이미지</a></li>
+                <li class="presentation"><a href="">상세정보</a></li>
+                <li class="presentation"><a href="">고객후기(0)</a></li>
+                <li class="presentation active"><a href="">상품문의(0)</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <h5><strong>PRODUCT Q&amp;A</strong></h5>
+            <ul>
+                <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전 동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+                <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1문의에 남겨주세요.</li>
+            </ul>
+        </div>
+        <div class="col-sm-12">
+            <hr class="detail-hr-purple"/>
+        </div>
+        <div class="col-sm-12">
+            <table class="table detail-table">
+                <colgroup>
+                    <col width="5%">
+                    <col width="10%">
+                    <col width="*%">
+                    <col width="10%">
+                    <col width="10%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>카테고리</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>문의문의</td>
+                        <td>홍*동</td>
+                        <td>2019-05-17</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>문의문의</td>
+                        <td>홍*동</td>
+                        <td>2019-05-17</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td>문의문의</td>
+                        <td>홍*동</td>
+                        <td>2019-05-17</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-12">
+            <hr class="detail-hr-purple"/>
+        </div>
+        <div class="col-sm-2 col-sm-offset-8">
+            <a href="" class="btn detail-btn-table">전체보기</a>
+        </div>
+        <div class="col-sm-2">
+            <a href="" class="btn detail-btn-table">상품문의</a>
+        </div>
+        <div class="col-sm-12 detail-paging">
+            <ul class="pagination detail-pagination">
+                <li><a href="">&laquo;</a></li>
+                <li class="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+                <li><a href="">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

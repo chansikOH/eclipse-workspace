@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<form id="sample-form" method="post" action="add.hta">
+		<p>이름</p>
+		<p><input type="text" name="username"></p>
+		<p>비밀번호</p>
+		<p><input type="password" name="userpwd"></p>
+		<p>비밀번호 확인</p>
+		<p><input type="password" name="userpwd1"> <span id="message" style="display: none; font-size: 11px;"></span></p> 
+		<p>지원분야</p>
+		<p>
+			<select name="category">
+				<option value=""> -- 선택하세요 -- </option>
+				<option value="SI"> 개발</option>
+				<option value="SM"> 유지보수</option>
+				<option value="OP"> 운영</option>
+				<option value="DB"> 데이터베이스</option>
+			</select>
+		</p>
+		<p>보유기술 (하나 이상 선택하세요)</p>
+		<p>
+			<input type="checkbox" name="tech" value="java">자바
+			<input type="checkbox" name="tech" value="database">데이터베이스
+			<input type="checkbox" name="tech" value="linux">리눅스
+			<input type="checkbox" name="tech" value="python">파이썬
+		</p>
+		<p>경력사항</p>
+		<p><textarea rows="5" cols="60" name="career"></textarea> </p>
+		<button type="submit">등록</button>
+	</form>
+	
+	<script type="text/javascript">
+		// form이 제출될 때 (submit 이벤트가 발생했을 때) 실행될 이벤트핸들러 함수 등록
+		$('#sample-form').submit(function(event) {
+			if($('[name=username]').val() == '') {
+				alert('이름을 입력하세요.');
+				$('[name=username]').focus();
+				return false;
+			}
+			if($('[name=userpwd]').val() == '') {
+				alert('비밀번호를 입력하세요.');
+				$('[name=userpwd]').focus();
+				return false;
+			}
+			if($('[name=category]').val() == '') {
+				alert('지원분야를 선택하세요.');
+				$('[name=category]').focus();
+				return false;
+			}
+			if($('[name=tech]:checked').length == 0) {
+				alert('보유기술을 하나 이상 선택하세요');
+				$('[name=tech]:eq(0)').focus();
+				return false;
+			}
+			if($('[name=career]').val() == '') {
+				alert('경력내용을 작성하세요');
+				$('[name=career]').focus();
+				return false;
+			}
+			
+			return true;
+		});
+		
+		$('[name=userpwd1]').blur(function() {
+			var pwd = $('[name=userpwd]').val();
+			var pwd1 = $(this).val();
+			if(pwd != pwd1) {
+				$('#message').css('display', 'block').css('color', 'red').text('비밀번호가 틀렸습니다.');
+				$(this).val('').focus();
+			} else {
+				$('#message').css('display', 'block').css('color', 'green').text('비밀번호가 확인되었습니다.')
+			}
+		});
+	</script>
+</body>
+</html>

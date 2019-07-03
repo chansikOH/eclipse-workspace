@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>나의 장바구니</h1>
+	</div>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="ck-all-cart" checked></th>
+				<th>상품번호</th>
+				<th>상품명</th>
+				<th class="text-right">가격</th>
+				<th class="text-center">구매수량</th>
+				<th class="text-right">구매가격</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" name="ck-cart-item" checked></td>
+				<td>10</td>
+				<td>에어팟</td>
+				<td class="text-right"><span class="item-price">200,000</span>원</td>
+				<td class="text-center">
+					<button class="btn btn-default btn-xs btn-minus">-</button>
+					<input type="text" style="width:25px;" name="item-amount" value="1"/>
+					<button class="btn btn-default btn-xs btn-plus">+</button>
+				</td>
+				<td class="text-right"><span class="item-order-price">200,000</span>원</td>
+				<td class="text-center"><button class="btn btn-default btn-xs">삭제</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ck-cart-item" checked></td>
+				<td>20</td>
+				<td>아이패드 프로</td>
+				<td class="text-right"><span class="item-price">900,000</span>원</td>
+				<td class="text-center">
+					<button class="btn btn-default btn-xs btn-minus">-</button>
+					<input type="text" style="width:25px;" name="item-amount" value="1"/>
+					<button class="btn btn-default btn-xs btn-plus">+</button>
+				</td>
+				<td class="text-right"><span class="item-order-price">900,000</span>원</td>
+				<td class="text-center"><button class="btn btn-default btn-xs">삭제</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="ck-cart-item" checked></td>
+				<td>30</td>
+				<td>갤럭시 폴드</td>
+				<td class="text-right"><span class="item-price">2,000,000</span>원</td>
+				<td class="text-center">
+					<button class="btn btn-default btn-xs btn-minus">-</button>
+					<input type="text" style="width:25px;" name="item-amount" value="1"/>
+					<button class="btn btn-default btn-xs btn-plus">+</button>
+				</td>
+				<td class="text-right"><span class="item-order-price">2,000,000</span>원</td>
+				<td class="text-center"><button class="btn btn-default btn-xs">삭제</button></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3"></td>
+				<td>총구매금액</td>
+				<td><strong id="total-item-price">3,100,000</strong>원</td>
+				<td>적립포인트</td>
+				<td><strong id="deposite-point">3,100</strong>원</td>
+			</tr>
+		</tfoot>
+	</table>
+	<!-- 
+		1. 전체선택 체크박스를 선택/해제하면 모든 상품의 체크박스가 선택/해제된다.
+			* 전체선택된 경우 총구매금액과 적립포인트가 반영된다.
+			* 전체해제된 경우 총구매금애과 적립포인트는 0으로 설정한다.
+		2. 각 상품의 체크박스를 해제/선택하면 
+			* 총구매가격과 적립포인트를 계산해서 반영한다.
+		2. 상품수량의 - + 버튼을 클릭하면 구매가격이 변경된다.
+			* 구매수량이 변경될 때 총구매가격과 적립포인트를 계산해서 반영한다.
+		3. 삭제버튼을 클릭하면 해당 상품이 삭제된다.
+			* 해당 상품이 삭제되면 총구매가격과 적립포인트를 계산해서 반영한다.
+	 -->
+</div>
+<script type="text/javascript">
+	
+	$('#ck-all-cart').change(function() {
+		var ckAll = $(this).prop('checked');
+		$('[name=ck-cart-item]').prop('checked', ckAll);
+		account();
+	})
+	
+	$('[name=ck-cart-item]').change(function() {
+		var trLength = $('tbody tr').length;
+		var checkedLength = $('[name=ck-cart-item]:checked').length;
+		
+		if(trLength == checkedLength) {
+			$('#ck-all-cart').prop('checked', true);
+		} else {
+			$('#ck-all-cart').prop('checked', false);
+		}
+		
+		account();
+	})
+	
+	$('.btn-minus, .btn-plus').click(function() {
+		var $parent = $(this).parents('tr');
+		var $amount = $parent.find('[name=item-amount]');
+		var $price = $parent.find('.item-price').text().replace(/,/g, '');
+		var $orderPrice = $parent.find('.item-order-price');
+		
+		if ($(this).text() == '+') {
+			var plusAmount = parseInt($amount.attr('value')) + 1;
+			$amount.attr('value', plusAmount);
+		} else if ($(this).text() == '-') {
+			var minusAmount = parseInt($amount.attr('value')) - 1;
+			$amount.attr('value', minusAmount);
+		}
+		var orderP = new Number($price*$amount.attr('value')).toLocaleString();
+		$orderPrice.text(orderP);
+		
+		account();
+	})
+	
+	$('tbody tr td:nth-child(7) button').click(function() {
+		$(this).parents('tr').remove();
+		
+		account();
+	})
+	
+	function account() {
+		var tPrice = 0;
+		$('[name=ck-cart-item]:checked').closest('tr').find('.item-order-price').each(function() {
+			tPrice += parseInt($(this).text().replace(/,/g, ''));
+		})
+		var totalPrice = new Number(tPrice).toLocaleString();
+		var point = new Number(tPrice/1000).toLocaleString(); 
+		$('#total-item-price').text(totalPrice);
+		$('#deposite-point').text(point);
+	}
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>박스 오피스 조회</h1>
+	</div>
+	
+	<div class="well text-right">
+		<form class="form-inline">
+			<div class="form-group">
+				<label>조회날짜 : </label>
+				<input type="date" class="form-control" id="search-date">
+				<button type="button" class="btn btn-primary">조회</button>
+			</div>
+		</form>
+	</div>
+	
+	<table class="table" id="boxoffice-table">
+		<thead>
+			<tr>
+				<th>순위</th>
+				<th>제목</th>
+				<th>개봉일</th>
+				<th>점유율</th>
+				<th>당일 관객수</th>
+				<th>누적 관객수</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
+<script type="text/javascript">
+	$('button').click(function(event) {
+		$('#boxoffice-table tbody').empty();
+		
+		var searchDate = $("#search-date").val().replace(/-/g, '');
+		if(searchDate == '') {
+			alert('조회날짜를 선택하세요');
+			return;
+		}
+		var url = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.xml';
+		$.get(url, {key:'430156241533f1d058c603178cc3ca0e', targetDt:searchDate}, function(xmlDoc) {
+			$(xmlDoc).find('dailyBoxOffice').each(function(index, el) {
+				var rank = $(el).find('rank').text();
+				var movieNm = $(el).find('movieNm').text();
+				var openDt = $(el).find('openDt').text();
+				var salesShare = $(el).find('salesShare').text();
+				var audiCnt = $(el).find('audiCnt').text();
+				var audiAcc = $(el).find('audiAcc').text();
+				
+				var row = '<tr>';
+				row += '<td>'+rank+'</td>';
+				row += '<td>'+movieNm+'</td>';
+				row += '<td>'+openDt+'</td>';
+				row += '<td>'+salesShare+'</td>';
+				row += '<td>'+audiCnt+'</td>';
+				row += '<td>'+audiAcc+'</td>';
+				row += '</tr>';
+				
+				$('#boxoffice-table tbody').append(row);
+			});
+		});
+	});
+</script>
+</body>
+</html>

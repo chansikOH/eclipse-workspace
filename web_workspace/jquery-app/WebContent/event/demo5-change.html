@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<table border="1" style="width: 100%">
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="ck-all"/>전체</th>
+				<th>상품명</th>
+				<th>가격</th>
+				<th>수량</th>
+				<th>구매가격</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" /></td>
+				<td>에어팟</td>
+				<td>200,000</td>
+				<td><input type="number" value="1" style="width: 27px"></td>
+				<td>200,000</td>
+				<td><button>삭제</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" /></td>
+				<td>맥북 프로</td>
+				<td>2,500,000</td>
+				<td><input type="number" value="1" style="width: 27px"></td>
+				<td>2,500,000</td>
+				<td><button>삭제</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" /></td>
+				<td>갤럭시 폴드</td>
+				<td>2,000,000</td>
+				<td><input type="number" value="1" style="width: 27px"></td>
+				<td>2,000,000</td>
+				<td><button>삭제</button></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" /></td>
+				<td>아이패드 프로</td>
+				<td>800,000</td>
+				<td><input type="number" value="1" style="width: 27px"></td>
+				<td>800,000</td>
+				<td><button>삭제</button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div>
+		총 구매 가격 : <strong id="total-order-price">0</strong>원
+	</div>
+	
+	<div>
+		<button id="btn-del-selected">선택삭제</button>
+		<button id="btn-del-all">전체삭제</button>
+	</div>
+	
+	<script type="text/javascript">
+		// 전체 체크박스의 상태가 변할 때마다 실행될 핸들러 함수를 등록
+		// 전체 체크박스의 체크여부를 조회해서 개별상품 체크박스의 체크여부를 변경한다.
+		$('#ck-all').change(function(event) {
+			// 전체 체크박스의 체크여부를 조회
+			var value = $(this).prop('checked');
+			// 개별상품 체크박스의 체크여부를 변경
+			$('tbody :checkbox').prop('checked', value);
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 개별 상품들의 체크박스의 상태가 변할 때마다 실행될 핸들러 함수를 등록
+		// 개별 상품들의 체크박스가 모두 선택된 경우에는 전체 체크박스를 체크상태로
+		// 개별 상품들의 체크박스 중 하나라도 체크가 되어 있지 않을 경우 전체 체크박스를 체크헤제 상태로 변경
+		$('tbody :checkbox').change(function(event) {
+			// 전체 데이터의 행 개수를 조회
+			var trLength = $('tbody tr').length;
+			// 체크된 개별상품 체크박스의 개수를 조회
+			var checkedLength = $('tbody :checkbox:checked').length;
+			// 체크된 개별상품의 체크박스 수와 전체 데이터의 행 개수가 동일하면
+			// 전체 체크박스를 체크상태로, 그 외는 체크해제로 상태를 변경한다.
+			if(checkedLength == trLength) {
+				$('#ck-all').prop('checked', true);
+			} else {
+				$('#ck-all').prop('checked', false);
+			}
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 삭제버튼 클릭시 실행될 함수 등록
+		// 삭제버튼이 소속된 tr을 찾아서 삭제한다.
+		$('tbody button').click(function(event) {
+			// this는 지금 클릭한 그 삭제버튼이다.
+			$(this).parents('tr').remove();
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 전체 삭제버튼 클릭시 모든 상품정보 행 삭제
+		$('#btn-del-all').click(function(event) {
+			$('tbody').empty();
+			// $('tbody tr').remove();
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 선택 삭제버튼 클릭시 체크된 상품 행 삭제
+		$('#btn-del-selected').click(function(event) {
+			// $('tbody :checkbox:checked').parents('tr').remove();
+			$('tbody tr:has(:checkbox:checked)').remove();
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 수량을 변경할 때마다 실행되는 함수 등록
+		$('[type=number]').on('change keyup', function(event) {
+			// this는 수량이 입력된 input 엘리먼트다.
+			var amount = $(this).val();
+			if(amount < 0) {
+				alert('수량은 0개 미만으로 설정할 수 없습니다.');
+				$(this).val(0);
+				return;
+			}
+			var price = $(this).parent().prev().text().replace(/,/g,'');
+			var $totalPrice = $(this).parent().next();
+			
+			var orderPrice = new Number(amount * price).toLocaleString();
+			$totalPrice.text(orderPrice);
+			
+			// 총 구매가격 변경
+			updateTotalOrderPrice();
+		});
+		
+		// 전체선택 변경시, 개별 체크박스 변경시, 삭제버튼 클릭시, 선택삭제버튼 클릭시, 
+		// 전체삭제버튼 클릭시, 수량 변경시 총 구매가격을 변경하는 함수
+		function updateTotalOrderPrice() {
+			var totalOrderPrice = 0;
+			
+			// tbody tr -> tbody tr을 찾는다.
+			// tr:has(:checkbox:checked) -> tr중에서 체크박스가 체크된 것을 가지는 tr을 찾는다.
+			// tr:has(:checkbox:checked) td -> 위에서 선택된 tr의 모든 td를 찾는다.
+			// tr:has(:checkbox:checked) td:nth-child(5) -> 위에서 선택된 td중에서 다섯째들만 찾는다.
+			$('tbody tr:has(:checkbox:checked) td:nth-child(5)').each(function() {
+				// this는 선택된 td들을 하나씩 순서대로 전달받는다.
+				
+				var text = $(this).text().replace(/,/g,'');		// td의 텍스트 읽기
+				var orderPrice = parseInt(text);				// 숫자로 바꾸기
+				totalOrderPrice += orderPrice;					// 총 구매가격에 누적시키기
+			});
+			$('#total-order-price').text(new Number(totalOrderPrice).toLocaleString());		// 화면에 표시하기
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	/* 
+		자바스크립트의 this
+			- 그 함수가 소속된 객체를 나타낸다.
+			
+			1. 함수 안에서 this는 기본적으로 window 객체다.
+			2. 메소드 안에서 this는 그 메소드가 소속된 객체다.
+			3. call()을 사용한 경우 메소드안에서 this는 call()의 매개변수로 전달된 객체다.
+	*/
+	
+	// 1. 함수 안에서 this
+	function fn1() {
+		console.log(this);
+	}
+	fn1();
+	
+	// 2. 메소드안에서 this
+	var person = {
+		name: "홍길동",
+		tel: "010-1111-1111",
+		email: "hong@gmail.com",
+		fn2: function () {
+			console.log(this);
+		},
+		fn3: function() {
+			console.log(this.name, this.tel, this.email);
+		}
+	}
+	person.fn2();
+	person.fn3();
+	
+	// 3. 메소드를 재사용하는 call을 사용한 경우의 this
+	var car = {
+		name: '제네시스',
+		price: 60000000,
+		print: function() {
+			console.log(this);
+			console.log(this.name, this.price);
+			console.log('-----------------------------------------------------');
+		}
+	}
+	
+	var myCar = {
+		name: '티코',
+		price: 8000000
+	}
+	var yourCar = {
+		name: '마세라티',
+		price: 1200000000
+	}
+	
+	car.print();
+	// call() 메소드는 다른 객체에 속한 메소드를 사용할 수 있다.
+	// car.print.call(myCar)
+	//		car객체의 print()메소드를 myCar에서 사용하는 것이다.
+	car.print.call(myCar);
+	car.print.call(yourCar);
+</script>
+</body>
+</html>

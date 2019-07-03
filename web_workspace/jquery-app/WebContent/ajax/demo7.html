@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>식품목록 <button id="btn" class="btn btn-default">조회</button></h1>
+	</div>
+	
+	<table class="table" id="food-table">
+		<thead>
+			<tr>
+				<th>구분</th>
+				<th>이름</th>
+				<th>가격</th>
+				<th>할인가격</th>
+			</tr>
+		</thead>
+		<tbody></tbody>	
+	</table>
+</div>
+<script type="text/javascript">
+	$('.btn').click(function(event) {
+		$('#food-table tbody').empty();
+		$.get('../jsp/foods.xml', function(xmlDoc) {
+			$(xmlDoc).find('food').each(function(index, el) {
+				var type = $(el).find('name').attr('type');
+				var name = $(el).find('name').text();
+				var price = $(el).find('price').text();
+				var discountPrice = $(el).find('discount_price').text();
+				
+				var row = '<tr>';
+				row += '<td>'+type+'</td>';
+				row += '<td>'+name+'</td>';
+				row += '<td>'+price+'</td>';
+				row += '<td>'+discountPrice+'</td>';
+				row += '</tr>';
+				
+				$('#food-table tbody').append(row);
+			})
+		});
+	});
+</script>
+</body>
+</html>

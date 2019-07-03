@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/* 
+		hoisting
+			- 자바스크립트의 기본동작이다.
+			- 변수, 함수의 선언을 코드의 꼭대기로 이동시킨다.
+			- "변수 끌어올리기"라고 부른다.
+			- 자바스크립트에서는 변수 호이스팅 때문에 변수의 스코프가 블록이 아니고, 함수 단위로 관리된다.
+	*/
+	
+	function fn1() {			// function fn1() {
+		x = 6;					// 		var x;
+		console.log("x", x);	// 		x = 6;
+								//		console.log("x", x);
+		var x = 0;				// 		x = 0;
+		console.log("x", x);	// 		console.log("x", x);
+	}							// }
+	fn1();
+	
+	function fn2() {			// function fn2() {
+		var x = 10;				// 		var x, y;
+		if (x > 5) {			//		x = 10;
+			var y = x * 2;		//		if (x > 5) {
+		}						//			y = x * 2;
+		console.log("x", x);	// 		}
+		console.log("y", y);	// 		console.log("x", x);
+	}							// 		console.log("y", y);
+	fn2();						// }
+		
+	var num = 10;
+	function fn3() {
+		console.log("num", num);
+		var num2 = 30;
+		console.log("num2", num2);
+	}
+	fn3();
+	
+	var score = 100;					// var score = 100;
+	function fn4() {					// function fn4() {
+		console.log("score1", score);	// 		var score;
+		var score = 80;					// 		console.log("score1", score);
+		console.log("score2", score);	// }
+	}
+	fn4();
+</script>
+</body>
+</html>

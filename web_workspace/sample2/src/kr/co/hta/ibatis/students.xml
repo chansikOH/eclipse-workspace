@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Ma 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+
+<sqlMap>
+	<typeAlias alias="Stud" type="kr.co.hta.vo.Student"/>
+	<insert id="insertStudent" parameterClass="Stud">
+		insert into hta_students
+		values(#id#, #name#, #gender#, #password#, #grade#, #dept#, sysdate)
+	</insert>
+	
+	<select id="getStudentById" parameterClass="string" resultClass="Stud">
+		select
+			stud_id id,
+			stud_name name,
+			stud_gender gender,
+			stud_password password,
+			stud_grade grade,
+			stud_dept dept,
+			stud_create_date createDate
+		from hta_students 
+		where stud_id = #value#
+	</select>
+	
+	<update id="updateStudent" parameterClass="Stud">
+		update hta_students
+		set
+			stud_name = #name#,
+			stud_gender = #gender#,
+			stud_password = #password#,
+			stud_grade = #grade#,
+			stud_dept = #dept#
+		where 
+			stud_id = #id#
+	</update>
+	
+</sqlMap>

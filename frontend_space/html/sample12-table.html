@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        thead th{color: red;}
+    </style>
+</head>
+<body>
+    <h1>표의 구조 정의하기</h1>
+    
+    <p>
+        thead, tbody, tfoot 태그를 사용하면
+        표의 제목, 표의 본문, 표의 요약부를 구성할 수 있다.
+    </p>
+    
+    <table border="1" style="width: 100%;">
+      <caption>
+            현재 예약 가능한 숙소 안내
+      </caption>
+       <thead>
+            <tr>
+                <th>숙소명</th>
+                <th>방 개수</th>
+                <th>가격</th>
+            </tr>     
+       </thead>
+       <tbody>
+            <tr>
+                <th>개나리방</th>
+                <td>1개</td>
+                <td>100만원</td>
+            </tr>
+            <tr>
+                <th>벚꽃방</th>
+                <td>4개</td>
+                <td>250만원</td>
+            </tr>
+            <tr>
+                <th>진달래방</th>
+                <td>4개(욕실2개)</td>
+                <td>300만원</td>
+            </tr>     
+       </tbody>
+       <tfoot> 
+            <tr>
+                <th>참고</th>
+                <td colspan="2">모든 요금은 2일 1박 기준(인원추가시 1인당 50만원 추가)</td>
+            </tr>
+       </tfoot>
+    </table>
+</body>
+</html>

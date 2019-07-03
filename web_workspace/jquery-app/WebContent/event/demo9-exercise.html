@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<style type="text/css">
+	th, td {text-align: center; padding: 5px;}
+	.highlight {background-color: yellow;}
+</style>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="top-box">
+		<h3>현재 근무중인 사원 리스트</h3>
+		<table border="1" style="width:100%;">
+			<thead>
+				<tr>
+					<th>순번</th>
+					<th>이름</th>
+					<th>근무부서</th>
+					<th>직위</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>홍길동</td>
+					<td>기술부</td>
+					<td>부장</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>이순신</td>
+					<td>기술부</td>
+					<td>과장</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>김유신</td>
+					<td>영업부</td>
+					<td>사원</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>강감찬</td>
+					<td>영업부</td>
+					<td>주임</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>류관순</td>
+					<td>비서실</td>
+					<td>대리</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div id="button-box" style="margin: 20px;">
+		<button id="btn-add">참가</button>
+		<button id="btn-del">불참</button>
+	</div>
+	
+	<div id="bottom-box">
+		<h3>하반기 세미나 참석 사원 리스트</h3>
+		<table border="1" style="width:100%;">
+			<thead>
+				<tr>
+					<th>순번</th>
+					<th>이름</th>
+					<th>근무부서</th>
+					<th>직위</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+		// tbody의 행을 클릭하면 해당 행을 하이라이트 시킨다.
+		// (행의 하이라이트는 .highlight 클래스를 추가한다.)
+		$('tbody').on('click', 'tr', function(event) {
+			$(this).toggleClass('highlight');
+		});
+		
+		// 참가버튼을 클릭하면 사원리스트에서 하이라이트된 행을 아래쪽 참석 사원 리스트에 복사한다.
+		// clone()와 append()를 활용하세요.
+		$('#btn-add').click(function(event) {
+			/* var $hlClone = $('.highlight').clone();
+			
+			$('#bottom-box tbody').append($hlClone);
+			$('tbody tr').removeClass('highlight'); */
+			
+			// this가 클릭한 버튼, 따라서 여기서 this는 쓸모 없음 직접 복사대상이 되는 tr을 선택해서 처리해야 함.
+			$('#top-box tr.highlight').filter(function() {
+				var no = $(this).find('td:first-child').text();
+				var len = $('#bottom-box td:first-child:contains('+no+')').length;
+				if(len > 0) {
+					alert('이미 참가한 사원은 중복 참가할 수 없습니다.');
+				};
+				return len == 0 ? true : false;
+			}).removeClass('highlight').clone().appendTo('#bottom-box tbody');
+			
+			/* $('#top-box tr.highlight').removeClass('highlight')
+									  .clone().appendTo('#bottom-box tbody'); */
+		});
+		
+		// 불참버튼을 클릭하면 참석 사원리스트에서 하이라이트된 행을 삭제한다.
+		$('#btn-del').click(function(event) {
+			$('#bottom-box tr.highlight').remove();
+		});
+	</script>
+</body>
+</html>

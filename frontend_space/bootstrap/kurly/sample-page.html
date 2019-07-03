@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .logo{
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        } 
+        .menu {
+            color: black;
+            text-align: center;
+            width: 190px;
+            font-size: 16px;
+        }
+        .nav-top {
+            height: 30px;
+            font-size: 11px;
+            color: black;
+        }
+        .nav-top-center{font-size: 11px;}
+        .search-btn{border: 0; background-color: #fff;}
+        .glyphicon-search{color: purple; margin-right: -30px}
+        .cart-icon{width: 30px; margin-top: 8px}
+        .badge{background-color: purple; }
+        .banner{width: 100%; height: 300px;}
+        .main-name{margin-top: 80px; display: block; text-align: center;}
+        .thumbnail{border: 0;}
+        .main-pro{text-decoration: none !important;}
+        .line-through{text-decoration: line-through; color: #aaa; margin-top: -10px;}
+        .sale-box{
+            height: 0px;
+            float: left; 
+            position: relative;
+        }
+        .box{
+            width: 80px;
+            margin-top: -610px;
+        }
+        .footer-btn{
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-text{color: #aaa; margin-top: -5px; margin-bottom: 20px;}
+        .footer-info{color: #aaa; font-size: 12px; margin: 3px;}
+        .purple{color: purple;}
+        .footer-line{margin-top: -10px; margin-bottom: -10px}
+        .footer-bottom{border: 0; color: black; padding: 0px; font-size: 12px}
+        .footer-img{width: 30px; margin-left: 5px;}
+        .footer-bottom-text{
+            color: #aaa; 
+            font-size: 11px; 
+            margin-left: -40px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-reverse">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="" class="nav-top">회원가입</a></li>
+                    <li><a href="" class="nav-top">로그인</a></li>
+                    <li class="dropdown">
+                    <a href="" class="dropdown-toggle nav-top" data-toggle="dropdown">고객센터<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu nav-top-center">
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">자주하는 질문</a></li>
+                        <li><a href="">1:1문의</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="images/logo.png" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-11">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle menu" data-toggle="dropdown">전체카테고리       <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="">상위카테고리1</a></li>
+                            <li><a href="">상위카테고리2</a></li>
+                            <li><a href="">상위카테고리3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="" class="menu">신상품</a></li>
+                    <li><a href="" class="menu">베스트</a></li>
+                    <li><a href="" class="menu">알뜰상품</a></li> 
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="search">
+                    </div>
+                    <button type="submit" class="btn search-btn"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
+            </div>
+            <div class="col-sm-1">
+                <a href=""><img src="images/ico_cart_x2.jpg" class="cart-icon"><span class="badge">2</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="images/banner.jpg" class="banner" alt="banner">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="main-name">이 상품 어때요?</h2>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro01.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon35.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                        <p class="line-through">14,000원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro02.jpg">
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro03.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon20.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                        <p class="line-through">3,500원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro04.jpg">
+                    <div class="caption">
+                        <h5>[야미요밀] 8無 쑥 생쌀치아바타</h5>
+                        <p><strong>3,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="main-name">이 상품 어때요?</h2>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro01.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon35.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                        <p class="line-through">14,000원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro02.jpg">
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro03.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon20.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                        <p class="line-through">3,500원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro04.jpg">
+                    <div class="caption">
+                        <h5>[야미요밀] 8無 쑥 생쌀치아바타</h5>
+                        <p><strong>3,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="main-name">이 상품 어때요?</h2>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro01.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon35.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                        <p class="line-through">14,000원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro02.jpg">
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro03.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon20.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                        <p class="line-through">3,500원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro04.jpg">
+                    <div class="caption">
+                        <h5>[야미요밀] 8無 쑥 생쌀치아바타</h5>
+                        <p><strong>3,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="main-name">이 상품 어때요?</h2>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro01.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon35.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                        <p class="line-through">14,000원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro02.jpg">
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro03.jpg">
+                    <div class="sale-box">
+                        <img src="images/icon20.jpg" class="box">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                        <p class="line-through">3,500원</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="thumbnail">
+                <a href="" class="main-pro">
+                    <img src="images/pro04.jpg">
+                    <div class="caption">
+                        <h5>[야미요밀] 8無 쑥 생쌀치아바타</h5>
+                        <p><strong>3,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>고객행복센터</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h2>1644-1107</h2>
+                    <a href=""><button class="btn btn-default footer-btn"><strong>카카오톡 문의</strong></button></a>
+                    <a href=""><button class="btn btn-default footer-btn"><strong>1:1 문의</strong></button></a>
+                </div>
+                <div class="col-sm-8">
+                    <h5>365고객센터</h5>
+                    <p class="footer-text">오전 7시 - 오후 7시</p>
+                    <h5>365고객센터</h5>
+                    <p class="footer-text">오전 7시 - 오후 7시</p>
+                    <h5>24시간 접수 가능</h5>
+                    <p class="footer-text">고객센터 운영시간에 순차적으로 답변해드리겠습니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p class="footer-info">
+                법인명 (상호) : 주식회사 컬리 | 사업자등록번호 : 261-81-23567 <span class="purple">사업자정보 확인</span>
+            </p>
+            <p class="footer-info">
+                통신판매업 : 제 2018-서울강남-01646호 | 개인정보보호책임자 : 이지훈
+            </p> 
+            <p class="footer-info">
+                주소 : 서울시 도산대로 16길 20, 이래빌딩B1 ~ 4F | 대표이사 : 김슬아
+            </p>
+            <p class="footer-info">
+                입점문의 : <span class="purple">입점문의하기</span> | 마케팅제휴 : <span class="purple">marketing@kurlycorp.com</span>
+            </p>
+            <p class="footer-info">
+                채용문의 : <span class="purple">recruit@kurlycorp.com</span>
+            </p>
+            <p class="footer-info">
+                팩스 : 070 - 7500 6098 | 이메일 : <span class="purple">help@kurlycorp.com</span>
+            </p>
+            <p></p>
+            <p class="footer-info">KURLY CORP . ALL RIGHTS RESERVED</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 footer-line">
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="btn-group btn-group-justified">
+                <a href="" class="btn footer-bottom">컬리소개</a>
+                <a href="" class="btn footer-bottom">컬리소개영상</a>
+                <a href="" class="btn footer-bottom">인재채용</a>
+                <a href="" class="btn footer-bottom">이용약관</a>
+                <a href="" class="btn footer-bottom"><strong>개인정보처리방침</strong></a>
+                <a href="" class="btn footer-bottom">이용안내</a>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <img src="images/logo_isms.jpg" class="img-circle footer-img">
+        </div>
+        <div class="col-sm-3">
+            <p class="footer-bottom-text">[인증범위]마켓컬리 쇼핑몰 서비스 개발 운영</p>
+            <p class="footer-bottom-text">[유효기간]2019.04.01 ~ 2022.03.31</p>
+        </div>
+        <div class="col-sm-2">
+            <a href=""><img src="images/ico_instagram.jpg" class="img-circle footer-img"></a>
+            <a href=""><img src="images/ico_fb.jpg" class="img-circle footer-img"></a>
+            <a href=""><img src="images/ico_blog.png" class="img-circle footer-img"></a>
+            <a href=""><img src="images/ico_youtube.png" class="img-circle footer-img"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

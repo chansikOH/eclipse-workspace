@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>뉴스</h1>
+	
+	<div id="breaking-news">
+		<h3>속보</h3>
+		<ul id="breaking-news-box">
+			<li>전세계에 좀비 바이러스 창궐</li>
+			<li>주요국 지도자들 지하벙커로 피신</li>
+			<li>전 지구적인 교통망, 통신망 회생불가능 상태로 파괴</li>
+		</ul>
+	</div>
+	
+	<div id="news-box">
+		<h3>주요 뉴스</h3>
+		<div class="box">
+			<h3>스포츠 뉴스</h3>
+			<ul id="sports-box">
+				<li>류현진 사이영상 수상</li>
+				<li>U-20 월드컵 한국 우승</li>
+				<li>손흥민 피파 올해의 선수상 수상</li>
+			</ul>
+		</div>
+		<div class="box">
+			<h3>연예 뉴스</h3>
+			<ul id="ent-box">
+				<li>트와이스 멤버간 불화로 해체</li>
+				<li>YG 주식 폭락, 양현석 개인회생 신청</li>
+				<li>BTS 그래미상 주요 부문 모두 수상</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="movie-box">
+		<h3>영화 정보</h3>
+		<div class="box">
+			<h3>개봉영화</h3>
+			<ul id="ranking-box">
+				<li>1위. 기생충</li>
+				<li>2위. 알라딘</li>
+				<li>3위. X맨, 다크 피닉스</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="movie-list-box">
+		<table id="movie-table" style="border: 1px solid black; width: 100%">
+			<thead>
+				<tr>
+					<th>순위</th>
+					<th>제목</th>
+					<th>개봉일</th>
+					<th>관객수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>기생충</td>
+					<td>6.10</td>
+					<td>5,000,000</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>알라딘</td>
+					<td>6.5</td>
+					<td>1,000,000</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>다크 피닉스</td>
+					<td>5.26</td>
+					<td>800,000</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>맨인블랙</td>
+					<td>6.12</td>
+					<td>4,000</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>맨인블랙</td>
+					<td>6.12</td>
+					<td>4,000</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>맨인블랙</td>
+					<td>6.12</td>
+					<td>4,000</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>맨인블랙</td>
+					<td>6.12</td>
+					<td>4,000</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>맨인블랙</td>
+					<td>6.12</td>
+					<td>4,000</td>
+				</tr>
+			</tbody>		
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+		// 기본 필터 선택자
+		// 1. 첫번째 요소 선택자
+		// 		$('선택자:first')
+		$('li:first').css('color', 'red');
+		// <li>류현진 사이영상 수상</li> 항목에 테두리 표시하기
+		$('#sports-box li:first').css('border', '3px solid green');
+	
+		// 2. 마지막 요소 선택자
+		//		$('선택자:last')
+		$('li:last').css('color', 'red');
+		
+		// 3. 홀수번째 요소 선택자	* 0번부터 시작
+		// 		$('선택자:odd')
+		$('li:odd').css('background-color', 'yellow');
+		
+		// 4. 짝수번째 요소 선택자
+		//		$('선택자:even')
+		$('li:even').css('background-color', 'lightgreen');
+		
+		// 5. 지정된 인덱스번째 요소 선택자
+		//		$('선택자:eq(인덱스)')	* 인덱스는 0부터 시작
+		$('li:eq(2)').css('font-size', '25px');
+		// <li>2위. 알라딘</li>을 매진처리 하기
+		$('#ranking-box > li:eq(1)').css('text-decoration', 'line-through');
+		
+		// 6. 지정된 인덱스번째의 이전 요소 선택자
+		//		$('선택자:lt(인덱스)')
+		// 영화순위가 1,2,3위인 tr을 선택해서 글자를 빨갛게 표시하기
+		$('#movie-table tbody tr:lt(3)').css('color', 'red');
+		
+		// 7. 지정된 인덱스번째의 이후 요소 선택자
+		//		$('선택자:gt(인덱스)')
+		// 영화 순위가 4,5,6,7,8,위 tr을 선택해서 글자를 흐리게 표시하기
+		$('#movie-table tbody tr:gt(2)').css('color', 'gray');
+	</script>
+</body>
+</html>

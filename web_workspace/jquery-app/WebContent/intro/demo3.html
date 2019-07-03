@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		div {
+			padding: 25px;
+			margin: 10px;
+			border: 2px dashed red;
+		}
+		p {
+			padding: 25px;
+			margin: 10px;
+			border: 2px dashed green;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="box-1" class="box">
+			<div id="box-2" class="box">
+				<div id="box-3">
+					<p>
+						<button id="btn-1">parent()</button>
+						<button id="btn-2">closest('.box')</button>
+						<button id="btn-3">parents('.box')</button>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		$('#btn-1').click(function() {
+			// 부모 p를 찾는다.
+			$(this).parent().css('background', 'yellow');
+		});
+		
+		$('#btn-2').click(function() {
+			// 조상 중에서 가장 가까운 .box를 찾는다.
+			$(this).closest('.box').css('border', '2px solid black');
+		});
+		
+		$('#btn-3').click(function() {
+			// 조상 중에서 .box를 모두 찾는다.
+			$(this).parents('.box').append('<span>요기요</span>');
+		});
+	</script>
+</body>
+</html>

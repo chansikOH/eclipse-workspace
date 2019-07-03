@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<style type="text/css">
+	input {width: 97%;}
+</style>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="person-info">
+		<h3>기본정보</h3>
+		<p><label>이름</label> <input type="text" name="username" /></p>
+		<p><label>전화</label> <input type="text" name="usertel" /></p>
+		<p><label>주소</label> <input type="text" name="useraddr" /></p>
+	</div>
+	
+	<div id="school-info">
+		<h3>학력사항 <button id="btn-add-school">추가</button> <button id="btn-del-school">삭제</button></h3>
+		<table border="1" style="width:100%;">
+			<thead>
+				<tr>
+					<th>학교 이름</th>
+					<th>교육 기간</th>
+					<th>구분(졸업/재학/중퇴/휴학)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" /></td>
+					<td><input type="text" /></td>
+					<td><input type="text" /></td>
+				</tr>
+				<tr>
+					<td><input type="text" /></td>
+					<td><input type="text" /></td>
+					<td><input type="text" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+		// 이름에 '홍길동', 전화번호에 '010-1111-1111', 주소에 '서울 종로구 봉익동 디아망빌딩'을 설정한다.
+		$('[name=username]').val('홍길동');
+		$('[name=usertel]').val('010-1111-1111');
+		$('[name=useraddr]').val('서울 종로구 봉익동 디아망빌딩');
+		
+		// 추가버튼을 클릭하면 학교명, 교육기간, 구분을 입력할 수 있는 행이 끝에 추가되도록한다.
+		$('#btn-add-school').click(function() {
+			var htmlContent = '';
+			htmlContent += '<tr>';
+			htmlContent += '<td><input type="text" /></td>';
+			htmlContent += '<td><input type="text" /></td>';
+			htmlContent += '<td><input type="text" /></td>';
+			htmlContent += '</tr>';
+			
+			$('tbody').append(htmlContent);
+		});
+		// 삭제버튼을 클릭하면 맨 마지막 학력사항 행이 삭제되도록 한다.
+		$('#btn-del-school').click(function() {
+			$('#school-info tbody tr:last').remove();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>input 태그의 주요 속성 연습하기</h1>
+    
+    <form action="register.jsp">
+        <label>value 속성</label> <input type="text" name="nickname" value="홍길동" /><br />
+        <label>placeholder 속성</label> <input type="text" name="username" placeholder="이름을 입력하세요" /><br />
+        <label>maxlength 속성</label> <input type="text" name="address" maxlength="6" /><br />
+        <label>readonly 속성</label> <input type="text" name="phone" value="010-1111-1111" readonly="readonly" /><br />
+        <label>disabled 속성</label> <input type="text" name="school" value="서울대학교" disabled="disabled" /><br />
+        <label>name 속성</label> <input type="text" name="userid" value="아이디를 입력하세요" /><br />
+        <label>name 속성</label> <input type="text" name="birth" vlaue="생일을 입력하세요" /><br />
+        
+        <label>name 속성</label> <input type="radio" name="gender" value="male" checked="checked"> 남
+                                <input type="radio" name="gender" value="female"> 여 <br />
+        <label>name 속성</label> <input type="radio" name="career" value="0" checked="checked"> 신입
+                                <input type="radio" name="career" value="3"> 3년차 이상
+                                <input type="radio" name="career" value="5"> 5년차 이상
+                                <input type="radio" name="career" value="7"> 7년차 이상 <br />
+                        
+        <label>name 속성</label> <input type="checkbox" name="tech" value="java" checked="checked"> java
+                                <input type="checkbox" name="tech" value="script" checked="checked"> script
+                                <input type="checkbox" name="tech" value="python"> python
+                                <input type="checkbox" name="tech" value="c"> c
+                                <input type="checkbox" name="tech" value="SQL"> SQL
+                                <input type="checkbox" name="tech" value="design"> design <br />
+        
+                                
+        <input type="submit" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+<style type="text/css">
+	#wrapper {
+		width: 1100px;
+	}
+	
+	.image-box {
+		float: left;
+		width: 200px;
+		max-width: 200px;
+		max-height: 250px;
+		margin: 20px;
+		padding: 10px;
+	}
+	
+	img {
+		width: 200px;
+		height: 200px;
+	}
+	
+	#modal {
+		display: none;
+		position: absolute;
+		left: 500px;
+		width: 450px;
+		height: 450px;
+		padding: 10px;
+		z-index: 10;	
+	}
+	
+	#modal img {
+		width: 425px;
+		height: 425px;
+	}
+</style>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	<div id="wrapper"></div>
+	
+	<div id="modal"></div>
+	
+	<script type="text/javascript">
+		var items = ['1.png', '2.jpg', '3.gif', '4.gif', '5.gif', '6.gif', '7.gif', '8.gif', '9.gif', '10.jpg', 
+					'11.gif', '12.gif', '13.gif', '14.jpg', '15.jpg', '16.jpg', '17.jpg', '18.gif', '19.gif', '20.gif'];
+		var begin = 0;
+		var end = 16;
+		
+		$('#wrapper').on('click', '.image-box img', function(event) {
+			var imagePath = $(this).attr('src');
+			var scrollTop = $(document).scrollTop();
+			var newTop = scrollTop + 240 + 'px';
+			
+			$('#modal').css('top', newTop);
+			$('#modal').html('<img src="'+imagePath+'">').show();
+		});
+		
+		$('#modal').on('click', 'img', function(event) {
+			$('#modal').hide();
+		});
+		
+		// 새로운 이미지 박스를 #wrapper에 추가하는 함수
+		function appendImageBox(begin, end) {
+			var htmlContent = '';
+			
+			// 범위 내의 이미지로 이미지박스를 생성
+			for(var i=begin; i<end; i++){
+				if(i >= items.length) {
+					break;
+				}
+				htmlContent += '<div class="image-box">';
+				htmlContent += '<img src="../images/'+items[i]+'" >';
+				htmlContent += '</div>';
+			}
+			// #wrapper의 맨 끝에 생성된 HTML을 추가
+			$('#wrapper').append(htmlContent);
+		}
+		// 초기에 일정 범위 내의 그림을 표시하도록 한다.
+		appendImageBox(begin, end);
+		
+		// 화면을 스크롤할 때마다 실행될 함수를 등록한다.
+		$(window).scroll(function(event) {
+			var documentHeight = $(document).height();	// 문서의 전체 높이
+			var top = $(document).scrollTop();			// 문서가 올라간 높이
+			var windowHeight = $(window).height();		// 브라우저 창의 높이
+			
+			// 문서가 올라간 높이 + 창의 높이가 문서 전체의 높이보다 같으면 새로운 그림이 추가되도록 한다.
+			if (top + windowHeight + 100 >= documentHeight) {
+				begin = end;
+				end = end + 4;
+				appendImageBox(begin, end);
+			}
+		});
+		
+		
+		
+	</script>
+</body>
+</html>

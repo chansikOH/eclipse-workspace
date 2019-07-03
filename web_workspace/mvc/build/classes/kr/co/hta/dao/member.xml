@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>	
+
+	<select id="getAllMembers" resultClass="Member">
+		select
+			member_id id,
+			member_pwd pwd,
+			member_name name,
+			member_email email,
+			member_used_yn usedYn,
+			member_create_date crateDate,
+			member_type type,
+			member_photo_name photoName
+		from 
+			hta_members
+		where
+			member_used_yn = 'Y'
+		order by
+			member_id
+	</select>
+	
+	<insert id="insertMember" parameterClass="Member">
+		insert into hta_members
+		(member_id, member_pwd, member_name, member_email, member_photo_name)
+		values
+		(#id#, #pwd#, #name#, #email#, #photoName#)
+	</insert>
+	
+	<select id="getMemberById" parameterClass="string" resultClass="Member">
+		select 
+			member_id id,
+			member_pwd pwd,
+			member_name name,
+			member_email email,
+			member_used_yn usedYn,
+			member_create_date createDate,
+			member_type type,
+			member_photo_name photoName
+		from 
+			hta_members
+		where 
+			member_id = #value#
+			and member_used_yn = 'Y'
+	</select>
+</sqlMap>

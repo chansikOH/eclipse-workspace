@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1 id="header-title">클로져 연습</h1>
+	</div>
+	
+	<script type="text/javascript">
+		var $ = function(selector) {
+			var items = document.querySelectorAll(selector);
+			
+			return{
+				css: function(property, value) {
+					for (var i=0; i<items.length; i++) {
+						var el = items[i];
+						el.style[property] = value;
+					}
+					return this;
+				},
+				show: function() {
+					for (var i=0; i<items.length; i++) {
+						var el = items[i];
+						el.style.display = 'block';
+					}
+					return this;
+				},
+				hide: function() {
+					for (var i=0; i<items.length; i++) {
+						var el = items[i];
+						el.style.display = 'none';
+					}
+					return this;
+				}
+			}
+		}
+		
+		$('#header-title').css('color', 'red').hide().show();
+	</script>
+</body>
+</html>

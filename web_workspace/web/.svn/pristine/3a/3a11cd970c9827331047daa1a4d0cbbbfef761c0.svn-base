@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="bootstrap-3.3.2-dist/js/jquery.min.js"></script>
+  <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>부트스트랩 컴포넌트</h1>
+  <h2>.btn-group</h2>
+  <div class="btn-group">
+      <button class="btn btn-default">현금</button>
+      <button class="btn btn-primary">카드</button>
+      <button class="btn btn-default">이머니</button>
+  </div>
+  
+   <h2>.btn-group .btn-group-justified</h2>
+  <div class="btn-group btn-group-justified">
+      <a href="" class="btn btn-default">이머니</a>
+      <a href="" class="btn btn-primary">이머니</a>
+      <a href="" class="btn btn-default">이머니</a>
+  </div>
+  
+  <h2>.btn-group 드롭다운버튼</h2>
+  <div class="btn-group">
+      <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">신상품순 <span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu">
+          <li><a href="">가격순</a></li>
+          <li><a href="">평점순</a></li>
+          <li><a href="">리뷰순</a></li>
+      </ul>
+  </div>
+  <h2>.badge 뱃지, .label 라벨</h2>
+  <div>
+      <button class="btn btn-primary">좋아요 <span class="badge">1</span></button>
+      <a href="">메일<span class="badge">7</span></a>
+      <a href="">쪽지<span class="badge">7</span></a>
+      <a href="">알림<span class="badge">7</span></a>
+  </div>
+  <div>
+      <a href="">메일<span class="label label-primary">7</span></a>
+      <a href="">쪽지<span class="label label-default">7</span></a>
+      <a href="">알림<span class="label label-success">7</span></a>
+      <a href="">요청<span class="label label-info">7</span></a>
+      <a href="">주의<span class="label label-warning">7</span></a>
+      <a href="">경고<span class="label label-danger">7</span></a>
+  </div>
+  
+  <h2>.glyphicon</h2>
+  <div>
+      <button class="btn btn-default"><span class="glyphicon glyphicon-heart"> 좋아요</span></button><button class="btn btn-danger"><span class="glyphicon glyphicon-heart"> 좋아요</span></button>
+<!--      http://bootstrapk.com/components/-->
+  </div>
+  
+  <h2>.list-group .list-group-item</h2>
+  <div >
+      <ul class="list-group">
+          <li class="list-group-item">가격순<span class="badge">3</span></li>
+          <li class="list-group-item">가격순<span class="badge">3</span></li>
+          <li class="list-group-item active">가격순<span class="badge">3</span></li>
+          <li class="list-group-item">가격순<span class="badge">3</span></li>
+      </ul>
+  </div>
+  <div>
+      <div class="list-group">
+          <a href="" class="list-group-item">링크1</a>
+          <a href="" class="list-group-item">링크1</a>
+          <a href="" class="list-group-item">링크1</a>
+          <a href="" class="list-group-item">링크1</a>
+      </div>
+  </div>
+  
+  <div>
+      <div class="list-group">
+          <a href="" class="list-group-item">
+          <h4 class="list-group-item-heading">트럼트럼트럼프</h4>
+          <p>트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문</p>
+          </a>
+      </div>
+      <div class="list-group">
+          <a href="" class="list-group-item">
+          <h4 class="list-group-item-heading">트럼트럼트럼프</h4>
+          <p>트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문</p>
+          </a>
+      </div>
+      <div class="list-group">
+          <a href="" class="list-group-item">
+          <h4 class="list-group-item-heading">트럼트럼트럼프</h4>
+          <p>트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문트럼프 평양방문</p>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+</body>
+</html>

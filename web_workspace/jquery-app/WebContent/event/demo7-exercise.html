@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<style type="text/css">
+	 .image-box{
+	 	float: left;
+		border: 1px dashed silver;
+		text-align: center;
+		width: 200px;
+		height: 300px;
+		padding: 5px;
+		margin: 10px;
+	}
+	.image-box img {
+		width: 188px;
+		height: 208px;
+	}
+</style>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div id="gallary">
+		<div class="image-box">
+			<h4>나코01</h4>
+			<img src="../images/9.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코02</h4>
+			<img src="../images/11.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코03</h4>
+			<img src="../images/3.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코04</h4>
+			<img src="../images/4.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코05</h4>
+			<img src="../images/5.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코06</h4>
+			<img src="../images/6.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코07</h4>
+			<img src="../images/7.gif" />
+			<input type="checkbox"/>
+		</div>
+		<div class="image-box">
+			<h4>나코08</h4>
+			<img src="../images/8.gif" />
+			<input type="checkbox"/>
+		</div>
+	</div>
+	
+	<div style="clear: both;">
+		<p>전체 사진 갯수 : <span id="sp-total-amount">0</span> 개</p>
+		<p>선택된 사진 갯수 : <span id="sp-selected-amount">0</span> 개</p>
+	</div>
+	<div>
+		<button id="btn-select">전체 선택</button>
+		<button id="btn-release">전체 해제</button>
+		<button id="btn-del">선택 삭제</button>
+	</div>
+	
+	<script type="text/javascript">
+		countAll();
+		
+		// 전체 선택을 클릭하면 모든 체크박스가 선택되게 한다.
+		$('#btn-select').click(function(event) {
+			$('#gallary :checkbox').prop('checked', true);
+			checkCount();
+		});
+		
+		// 전체 해제를 클릭하면 모든 체크박스가 해체되게 한다.
+		$('#btn-release').click(function(event) {
+			$('#gallary :checkbox').prop('checked', false);
+			checkCount();
+		});
+		
+		// 선택 삭제를 클릭하면 선택된 이미지가 삭제되게 한다.
+		$('#btn-del').click(function(event) {
+			$('#gallary .image-box:has(:checkbox:checked)').remove();
+			countAll();
+			checkCount();
+		});
+		
+		// 체크박스의 체크상태가 변할 때 마다 전체 사진 개수, 선택된 사진 개수를 변경한다.
+		
+		// 체크박스의 체크상태가 변할때마다 선택된 사진 개수를 변경하기
+		$('#gallary :checkbox').change(function(event){
+			checkCount();
+		});
+		
+		// 선택된 사진 개수를 변경하는 함수
+		function checkCount() {
+			var count = $('#gallary :checkbox:checked').length;
+			$('#sp-selected-amount').text(count);
+		}
+		
+		// 전체 사진 개수를 변경하는 함수
+		function countAll() {
+			var count = $('.image-box').length;;
+			$('#sp-total-amount').text(count);
+		}
+	</script>
+</body>
+</html>

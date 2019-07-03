@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            width: 200px; 
+            height: 100px; 
+            padding: 20px; 
+            float: left;
+            margin-right: 20px;
+        }
+        #box-1 {
+            background-color: #fde;
+            /*
+            위치를 지정하는 것이 소용없다.
+            position: relative;
+            left: 100px;
+            top: -100px;
+            */
+        }
+        #box-2 {
+            background-color: #cfe;
+            position: relative;
+            left: -50px;
+            top: 30px;
+            z-index: 2;
+        }
+        #box-3 {
+            background-color: #dfa;
+            position: relative;
+            left: -100px;
+            top: 60px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS 연습하기</h1>
+    
+    <h2>position 속성</h2>
+    <div id="box-1">박스1</div>
+    <div id="box-2">박스2</div>
+    <div id="box-3">박스3</div>
+</body>
+</html>

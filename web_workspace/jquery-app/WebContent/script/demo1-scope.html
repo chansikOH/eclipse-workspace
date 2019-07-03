@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/* 
+		변수의 스코프
+			- 변수의 접근범위를 지정하는 것이다.
+			- 스코프의 종류
+				- 전역변수(Global Scope)
+					function 밖에서 정의한 변수는 전역변수가 된다.
+					function 안에서 변수를 정의할 때 var를 사용하지 않으면 전역변수가 된다.
+					스크립트 코드 전체에서 접근할 수 있다.
+				- 지역변수(Local Scope)
+					function 안에서 정의한 변수는 지역변수가 된다.
+					해당 function안에서만 접근할 수 있다.
+	*/
+	
+	// 전역변수 선언하기
+	var username = '홍길동';
+	
+	function fn1() {
+		// 지역변수 선언하기
+		var x = 10;
+		var y = 20;
+		// 전역변수가 된다.
+		z = 300000000;
+		
+		console.log(username);	// 전역변수 사용하기
+		console.log(z);
+		console.log(x, y)		// 지역변수 사용하기
+	}
+	
+	function fn2() {
+		var a = '서울특별시 종로구';
+		var b = '02-1234-5678';
+		
+		console.log(username);	// 전역변수 사용하기
+		console.log(a, b);		// 지역변수 사용하기
+		console.log(z);
+		console.log(x, y);		// 다른 함수에서 정의한 지역변수 사용하기
+	}
+	
+	fn1();
+	fn2();
+</script>
+</body>
+</html>

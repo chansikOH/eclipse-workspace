@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery 연습</title>
+<script type="text/javascript" src="../resources/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<h1>jQuery 연습</h1>
+	
+	<div>
+		<h3>뉴스</h3>
+		<p class="hot">한국이 일본경제 추월</p>
+		<p>애플 아이폰 신규 모델 출시</p>
+		<p class="hot">삼성전자 <span>폴드폰</span> 출시</p>
+		<p>LG 휘어지는 TV 출시</p>
+	</div>
+	
+	<script type="text/javascript">
+		// 기타 필터 선택자
+		
+		// 1. $('선택자1:not(선택자2)')
+		// 선택자1로 선택된 것 중에서 선택자2에 해당되는 요소는 제외하고 선택한다.
+		$('p').css('color', 'red');
+		$('p:not(.hot)').css('color', 'blue');
+		
+		// 2. $('선택자1:contains('텍스트')')
+		// 선택자1로 선택된 것 중에서 지정된 텍스트를 포함하고 있는 요소를 선택한다.
+		$('p:contains(애플)').css('font-size', '30px');
+		
+		// 3. $('선택자1:has(선택자2)')
+		// 선택자1로 선택된 것 중에서 선택자2에 해당되는 요소를 포함하고 있는 것을 선택한다.
+		$('p:has(span)').css('border', '2px solid red');
+	</script>
+</body>
+</html>

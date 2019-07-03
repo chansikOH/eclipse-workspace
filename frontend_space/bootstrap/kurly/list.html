@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .list-cat-icon{
+            width: 50px;
+            margin-top: 30px
+        }
+        .cat-par-text{position: absolute; bottom: 3px;}
+        .list-nav-tabs{
+            font-size: 12px;
+            border-bottom: 1px solid #ddd;
+            margin-top: 15px;
+        }
+        .list-nav-tabs > li.active {
+            border-bottom : 1px solid purple;
+        }
+        .list-nav-tabs > li.active > a,  .nav-tabs > li.active > a:hover{
+            font-weight: bold;
+            color: purple;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        .list-nav-tabs > li > a:hover {
+            background-color: white;
+            color: purple;
+            font-weight: bold;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+        .list-nav-tabs > li > a {
+            color: black;
+            padding-bottom: 3px;
+        }
+        .list-pro{text-decoration: none !important;}
+        .list-box{
+            width: 80px;
+            position: absolute;
+            top: 35px;
+            left: 20px;
+        }
+        .list-thumbnail {
+            margin-top: 30px; 
+            border: 0px;      
+        }
+        .list-cart{
+            width: 50px;
+            position: absolute;
+            right: 30px;
+            bottom: 0px;
+        }
+        .list-paging {
+            text-align: center;
+        }
+        .list-pagination > li > a {
+            color: #555;
+        }
+        .list-pagination > li > a:hover {
+            color: purple;
+            font-weight: bold;
+        }
+        .list-pagination > li.active > a, .pagination > li.active > a:hover {
+            background-color: #aaa;
+            border: 1px solid #aaa;
+            color: purple;
+            font-weight: bold;
+        }
+        .list-orderby {
+            position: absolute !important;
+            width: 130px;
+            font-size: 12px;
+            border: transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="images/icon_veggies.png" class="list-cat-icon">
+            <span class="cat-par-text"><strong>채소</strong></span>    
+        </div>
+        <div class="col-sm-10">
+            <ul class="nav nav-tabs list-nav-tabs">
+                <li class="presentation active"><a href="">전체보기</a></li>
+                <li class="presentation"><a href="">기본채소</a></li>
+                <li class="presentation"><a href="">쌈,샐러드,간편채소</a></li>
+                <li class="presentation"><a href="">브로콜리,특수채소</a></li>
+                <li class="presentation"><a href="">콩나물,버섯류</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-2">
+            <form action="">
+                <div class="form-group">
+                    <select class="form-control list-orderby" name="" id="">
+                        <option value="">추천순</option>
+                        <option value="">신상품순</option>
+                        <option value="">인기상품순</option>
+                        <option value="">낮은가격순</option>
+                        <option value="">높은가격순</option>
+                    </select>
+                </div>
+            </form>   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="thumbnail list-thumbnail">
+                <a href="" class="list-pro">
+                    <img src="images/pro01.jpg">
+                    <div><img src="images/icon35.jpg" class="list-box"></div>
+                    <div>
+                        <img src="images/cart-add-button_type2.jpg" class="list-cart img-circle">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][삼대가] 불족발</h5>
+                        <p><strong>9,100원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail list-thumbnail">
+                <a href="" class="list-pro">
+                    <img src="images/pro02.jpg">
+                    <div>
+                        <img src="images/cart-add-button_type2.jpg" class="list-cart img-circle">
+                    </div>
+                    <div class="caption">
+                        <h5>[벨지오이오소] 모짜렐라로그</h5>
+                        <p><strong>14,700원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="thumbnail list-thumbnail">
+                <a href="" class="list-pro">
+                    <img src="images/pro03.jpg" class="sale-box">
+                    <div>
+                        <img src="images/icon20.jpg" class="list-box">
+                    </div>
+                    <div>
+                        <img src="images/cart-add-button_type2.jpg" class="list-cart img-circle">
+                    </div>
+                    <div class="caption">
+                        <h5>[오늘특가][멜리스] 할라페뇨 2종</h5>
+                        <p><strong>2,800원</strong></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-12 list-paging">
+            <ul class="pagination list-pagination">
+                <li><a href="">&laquo;</a></li>
+                <li class="active"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+                <li><a href="">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
